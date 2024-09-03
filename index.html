@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 	<style>
 		.one-third.js-fullheight.order-md-last.img {
@@ -110,6 +112,70 @@
 
 		.zoom-effect:hover {
 			transform: scale(1.1);
+		}
+
+		/* General Styles */
+		body {
+			font-family: 'Poppins', sans-serif;
+			color: #fff;
+			background-color: #000;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+		/* Contact Form Styles */
+		.contact-form {
+			max-width: 600px;
+			margin: 0 auto;
+			background-color: #1a1a1a;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		.contact-form .form-group {
+			margin-bottom: 20px;
+		}
+
+		.contact-form .form-group label {
+			display: block;
+			font-size: 16px;
+			margin-bottom: 5px;
+			color: #ffbd39;
+		}
+
+		.contact-form .form-control {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #333;
+			color: #fff;
+		}
+
+		.contact-form .form-control:focus {
+			outline: none;
+			box-shadow: 0 0 10px rgba(255, 189, 57, 0.7);
+		}
+
+		.contact-form .btn {
+			background-color: #ffbd39;
+			color: #000;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.contact-form .btn:hover {
+			background-color: #e6a832;
+		}
+
+		.contact-form .text-center {
+			margin-top: 20px;
 		}
 	</style>
 
@@ -573,12 +639,28 @@
 			<div class="container">
 				<br>
 				<br>
-				<div class="row justify-content-center">
-					<div class="col-md-7 ftco-animate text-center">
-						<h2>Have a<span> Question? </span> <a href="https://forms.gle/uLaTShUKXraAvHJ77"
-								class="btn btn-primary py-3 px-5">Click Here</a> </h2>
-					</div>
-				</div>
+				<section id="contact-form" style="margin-top: 50px;">
+					<h2 class="text-center">Contact Me</h2>
+					<form action="send_email.php" method="post" class="contact-form">
+						<div class="form-group">
+							<label for="name">Name:</label>
+							<input type="text" id="name" name="name" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Email:</label>
+							<input type="email" id="email" name="email" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label for="message">Message:</label>
+							<textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+						</div>
+						<div class="text-center">
+							<input type="submit" value="Send" class="btn btn-primary">
+						</div>
+					</form>
+				</section>
+
+
 				<br>
 				<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
 					<li class="ftco-animate normal-txt">Find me on </li>
@@ -631,6 +713,27 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('form.contact-form').on('submit', function (event) {
+				event.preventDefault(); // Prevent the default form submission
+
+				$.ajax({
+					url: 'send_email.php',
+					type: 'POST',
+					data: $(this).serialize(),
+					success: function (response) {
+						alert('Thank you! Your message has been sent.'); // Success message
+						$('form.contact-form')[0].reset(); // Reset form fields
+					},
+					error: function () {
+						alert('Oops! Something went wrong, and we couldn\'t send your message.');
+					}
+				});
+			});
+		});
+	</script>
+
 
 </body>
 
