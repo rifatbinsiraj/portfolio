@@ -19,6 +19,13 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+	<script type="text/javascript">
+		(function () {
+			emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS User ID
+		})();
+	</script>
+
 
 
 	<style>
@@ -665,7 +672,7 @@
 				<br>
 				<section id="contact-form" style="margin-top: 50px;">
 					<h2 class="text-center">Ask Me</h2>
-					<form action="send_email.php" method="post" class="contact-form">
+					<form id="contact-form" class="contact-form">
 						<div class="form-group">
 							<label for="name">Name:</label>
 							<input type="text" id="name" name="name" class="form-control" required>
@@ -737,7 +744,7 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
 	<script src="js/main.js"></script>
-	<script>
+	<!-- <script>
 		$(document).ready(function () {
 			$('form.contact-form').on('submit', function (event) {
 				event.preventDefault(); // Prevent the default form submission
@@ -756,8 +763,30 @@
 				});
 			});
 		});
-	</script>
+	</script> -->
+	<script>
+		document.getElementById('contact-form').addEventListener('submit', function (event) {
+			event.preventDefault(); // Prevent the default form submission
 
+			// Collect form data
+			const name = document.getElementById('name').value;
+			const email = document.getElementById('email').value;
+			const message = document.getElementById('message').value;
+
+			// Send the email using EmailJS
+			emailjs.send("service_0w1gd33", "template_ph89t8u", {
+				from_name: name,
+				from_email: email,
+				message: message
+			})
+				.then(function (response) {
+					alert("Thank you! Your message has been sent.");
+					document.getElementById('contact-form').reset(); // Reset form fields
+				}, function (error) {
+					alert("Oops! Something went wrong, and we couldn't send your message.");
+				});
+		});
+	</script>
 
 </body>
 
