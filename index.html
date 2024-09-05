@@ -41,18 +41,44 @@
 			margin-bottom: 2rem;
 		}
 
+		.img-about img {
+			border-radius: 15px;
+			/* Soft rounding */
+			background-color: #ffbd39;
+			/* Adds yellow background color */
+			padding: 10px;
+			/* Adds padding around the image */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+			/* Adds shadow */
+			width: 100%;
+			/* Ensures the image is responsive */
+			max-width: 300px;
+			/* Limit the maximum size */
+			margin: 20px auto;
+			/* Center the image with some margin */
+			display: block;
+			/* Ensure it's block-level for centering */
+		}
+
 		.about-mf .about-img img {
 			border-radius: 50%;
 			/* Makes the image round */
 			background-color: #ffbd39;
 			/* Adds yellow background color */
-			padding: 10px;
+			padding: 5px;
 			/* Adds some padding around the image */
-			width: 200px;
-			/* Adjust the size as needed */
-			height: 200px;
-			/* Ensure the image remains square for perfect rounding */
+			width: 150px;
+			height: 150px;
+			/* Ensure the image remains square */
+			object-fit: cover;
+			/* Ensures the image fills the container without distortion */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+			/* Adds shadow */
+			display: block;
+			margin: 0 auto;
 		}
+
+
 
 		.skill-mf .progress {
 			margin: .5rem 0 1.2rem 0;
@@ -210,9 +236,8 @@
 				<div class="container">
 					<div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
 						data-scrollax-parent="true">
-						<div class="one-third js-fullheight order-md-last img"
-							style="background-image:url(images/1797.png);">
-							<div class="overlay"></div>
+						<div class="img-about img d-flex align-items-stretch">
+							<img src="images/about.png" alt="About me">
 						</div>
 						<div class="one-forth d-flex align-items-center ftco-animate"
 							data-scrollax=" properties: { translateY: '70%' }">
@@ -222,7 +247,7 @@
 								<span id="typing-animation"></span>
 								<script>
 									const typingAnimationElement = document.getElementById('typing-animation');
-									const typingTexts = ['Software Engineer', 'Full-Stack Engineer','Back-End Engineer'];
+									const typingTexts = ['Software Engineer', 'Full-Stack Engineer', 'Back-End Engineer'];
 									function playTypingAnimation(text) {
 										for (let i = 0; i < text.length; i++) {
 											setTimeout(() => {
@@ -260,8 +285,8 @@
 							<div class="overlay">
 								<div class="row">
 									<div class="col-sm-6 col-md-5">
-										<div class="about-img">
-											<img src="images/about-me.jpg" class="img-fluid rounded b-shadow-a" alt="">
+										<div class="img-about-small">
+											<img src="images/about-me.jpg" alt="Rifat Bin Siraj">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-7">
