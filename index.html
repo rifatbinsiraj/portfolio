@@ -741,49 +741,6 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
 	<script src="js/main.js"></script>
-	<!-- <script>
-		$(document).ready(function () {
-			$('form.contact-form').on('submit', function (event) {
-				event.preventDefault(); // Prevent the default form submission
-
-				$.ajax({
-					url: 'send_email.php',
-					type: 'POST',
-					data: $(this).serialize(),
-					success: function (response) {
-						alert('Thank you! Your message has been sent.'); // Success message
-						$('form.contact-form')[0].reset(); // Reset form fields
-					},
-					error: function () {
-						alert('Oops! Something went wrong, and we couldn\'t send your message.');
-					}
-				});
-			});
-		});
-	</script> -->
-	<!-- <script>
-		document.getElementById('contact-form').addEventListener('submit', function (event) {
-			event.preventDefault(); // Prevent the default form submission
-
-			// Collect form data
-			const name = document.getElementById('name').value;
-			const email = document.getElementById('email').value;
-			const message = document.getElementById('message').value;
-
-			// Send the email using EmailJS
-			emailjs.send("service_0w1gd33", "template_ph89t8u", {
-				from_name: name,
-				from_email: email,
-				message: message
-			})
-				.then(function (response) {
-					alert("Thank you! Your message has been sent.");
-					document.getElementById('contact-form').reset(); // Reset form fields
-				}, function (error) {
-					alert("Oops! Something went wrong, and we couldn't send your message.");
-				});
-		});
-	</script> -->
 	<script>
 		document.getElementById('contact-form').addEventListener('submit', function (event) {
 			event.preventDefault(); // Prevent the default form submission
@@ -817,11 +774,6 @@
 					submitButton.value = "Send";
 				});
 		});
-	</script>
-	<script type="text/javascript">
-		(function () {
-			emailjs.init("user_ABC123xyz"); // Replaced with actual EmailJS User ID
-		})();
 	</script>
 </body>
 
