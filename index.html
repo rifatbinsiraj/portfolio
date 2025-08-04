@@ -37,14 +37,16 @@
 				const submitButton = this.querySelector('input[type="submit"]');
 				submitButton.disabled = true;
 				submitButton.value = "Sending...";
-
-				// Send the email using EmailJS
-				emailjs.send("service_0w1gd33", "template_ph89t8u", {
+				const emailParams = {
 					from_name: name,
 					from_email: email,
 					subject: subject,
 					message: message
-				})
+				};
+				console.log(emailParams, "emailParams");
+
+				// Send the email using EmailJS
+				emailjs.send("service_0w1gd33", "template_ph89t8u", emailParams)
 					.then(function (response) {
 						alert("Thank you! Your message has been sent.");
 						document.getElementById('contact-form').reset(); // Reset form fields
