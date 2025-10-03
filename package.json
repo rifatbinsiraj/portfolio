@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:server": "npm run start:dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently -n SERVER,CLIENT -c cyan,magenta \"npm run dev:server\" \"npm run dev:client\"",
+    "build:server": "npm run build --prefix server",
+    "build:client": "npm run build --prefix client",
+    "build": "npm run build:server && npm run build:client",
+    "start": "npm run start:prod --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
