@@ -280,42 +280,44 @@
 			<div class="slider-item">
 				<div class="overlay"></div>
 				<div class="container">
-					<div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
-						data-scrollax-parent="true">
-						<div class="img-about img d-flex align-items-stretch">
-							<img src="images/about.png" alt="About me">
-						</div>
-						<div class="one-forth d-flex align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }">
-							<div class="text">
-								<span class="subheading">Hello!</span>
-								<h1 class="mb-4 mt-3">I'm <span>Rifat Bin Siraj</span></h1>
-								<span id="typing-animation"></span>
-								<script>
-									const typingAnimationElement = document.getElementById('typing-animation');
-									const typingTexts = ['Software Engineer', 'Full-Stack Engineer', 'Back-End Engineer'];
-									function playTypingAnimation(text) {
-										for (let i = 0; i < text.length; i++) {
-											setTimeout(() => {
-												typingAnimationElement.textContent += text[i];
-											}, i * 200);
-										}
-										setTimeout(() => {
-											typingAnimationElement.textContent = '';
-											playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-										}, text.length * 200);
-									}
-									playTypingAnimation(typingTexts[0]);
-								</script>
-								<br><br>
-								<h2>A Full-Stack Engineer</h2>
-								<p><a href="https://www.linkedin.com/in/rifatbinsiraj/"
-										class="btn btn-primary py-3 px-4">LinkedIn</a>
-									<a href="https://github.com/Rifat024"
-										class="btn btn-white btn-outline-white py-3 px-4">GitHub</a>
-								</p>
-							</div>
-						</div>
+					<div class="row d-md-flex no-gutters slider-text align-items-center" data-scrollax-parent="true">
+					    <!-- Text column -->
+					    <div class="col-md-7 one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+					        <div class="text">
+					            <span class="subheading">Hello!</span>
+					            <h1 class="mb-4 mt-3">I'm <span>Rifat Bin Siraj</span></h1>
+					            <span id="typing-animation"></span>
+					            <script>
+					                const typingAnimationElement = document.getElementById('typing-animation');
+					                const typingTexts = ['Software Engineer', 'Full-Stack Engineer', 'Back-End Engineer'];
+					                function playTypingAnimation(text) {
+					                    for (let i = 0; i < text.length; i++) {
+					                        setTimeout(() => {
+					                            typingAnimationElement.textContent += text[i];
+					                        }, i * 200);
+					                    }
+					                    setTimeout(() => {
+					                        typingAnimationElement.textContent = '';
+					                        playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+					                    }, text.length * 200);
+					                }
+					                playTypingAnimation(typingTexts[0]);
+					            </script>
+					            <br><br>
+					            <h2>A Full-Stack Engineer</h2>
+					            <p>
+					                <a href="https://www.linkedin.com/in/rifatbinsiraj/" class="btn btn-primary py-3 px-4">LinkedIn</a>
+					                <a href="https://github.com/Rifat024" class="btn btn-white btn-outline-white py-3 px-4">GitHub</a>
+					            </p>
+					        </div>
+					    </div>
+
+					    <!-- Image column - responsive and centered -->
+					    <div class="col-md-5 d-flex justify-content-center align-items-center">
+					        <div class="img-about img d-flex align-items-stretch">
+					            <img src="images/about.png" alt="About me" class="img-fluid" style="max-width:360px; width:100%; height:auto; border-radius:15px;">
+					        </div>
+					    </div>
 					</div>
 				</div>
 			</div>

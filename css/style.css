@@ -8467,9 +8467,17 @@ h1, h2, h3, h4, h5,
       .owl-carousel.home-slider .slider-item .slider-text {
         height: 750px;
         z-index: 0; }
+        /* Mobile: stack content vertically and center */
         @media (max-width: 991.98px) {
           .owl-carousel.home-slider .slider-item .slider-text {
-            text-align: center; } }
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            padding: 3.5rem 1rem;
+          } }
         .owl-carousel.home-slider .slider-item .slider-text .one-third {
           width: 60%;
           position: relative;
@@ -8497,6 +8505,7 @@ h1, h2, h3, h4, h5,
           width: 50%;
           position: relative; }
           @media (min-width: 768px) {
+            /* keep desktop absolute layout for larger screens */
             .owl-carousel.home-slider .slider-item .slider-text .one-forth {
               position: absolute;
               top: 0;
@@ -8506,17 +8515,23 @@ h1, h2, h3, h4, h5,
               width: 1200px;
               margin: 0 auto; } }
           @media (max-width: 991.98px) {
+            /* mobile: switch to normal flow so image stacks under/next to text */
             .owl-carousel.home-slider .slider-item .slider-text .one-forth {
               width: 100%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
+              position: relative;
+              top: auto;
+              left: auto;
+              right: auto;
+              bottom: auto;
               z-index: 1;
-              padding: 1em; } }
+              padding: 1em 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            } }
           .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
             width: 100%; }
+            /* desktop: keep centered vertical position */
             @media (min-width: 992px) {
               .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
                 position: absolute;
@@ -8529,6 +8544,21 @@ h1, h2, h3, h4, h5,
                 max-width: 50%;
                 padding-left: 45px;
                 padding-right: 3em; } }
+            /* mobile: remove absolute transforms and let it size naturally */
+            @media (max-width: 991.98px) {
+              .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                -webkit-transform: none;
+                -ms-transform: none;
+                transform: none;
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+              } }
         .owl-carousel.home-slider .slider-item .slider-text .subheading {
           color: #000000;
           font-weight: 600;
@@ -9703,3 +9733,349 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+/* --- HERO: stronger mobile overrides (appended) ---
+   Ensures text and image stack, removes absolute positioning on small screens,
+   and forces sensible image sizing and spacing.
+*/
+@media (max-width: 991.98px) {
+  .owl-carousel.home-slider .slider-item {
+    height: auto !important;
+    min-height: 60vh !important;
+    padding: 2.5rem 0 !important;
+  }
+
+  /* Make the slider-text a vertical flex container on mobile */
+  .owl-carousel.home-slider .slider-item .slider-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: auto !important;
+    padding: 2rem 1rem !important;
+  }
+
+  /* Ensure the left (text) and right (image) columns flow normally and do not use absolute positioning */
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth,
+  .owl-carousel.home-slider .slider-item .slider-text .one-third {
+    position: relative !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 2 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Make sure the text block uses full width and resets any absolute centering */
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text,
+  .owl-carousel.home-slider .slider-item .slider-text .one-third .text {
+    position: relative !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  /* Image sizing and centering */
+  .img-about,
+  .img-about .img,
+  .img-about img,
+  .owl-carousel.home-slider .slider-item .img-about img,
+  .col-md-5 .img-about img {
+    display: block !important;
+    width: 70% !important;
+    max-width: 360px !important;
+    height: auto !important;
+    margin: 1rem auto !important;
+    object-fit: contain !important;
+  }
+
+  /* Reduce headline size on small devices */
+  .owl-carousel.home-slider .slider-item .slider-text h1 {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+  }
+  .owl-carousel.home-slider .slider-item .slider-text h2 {
+    font-size: 20px !important;
+  }
+
+  /* Ensure nav controls/dots don't overlap hero content */
+  .owl-carousel.home-slider .owl-nav,
+  .owl-carousel.home-slider .owl-dots {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 1rem !important;
+  }
+}
+
+/* --- DESKTOP OVERRIDES: enforce two-column hero layout on >=992px --- */
+@media (min-width: 992px) {
+  .owl-carousel.home-slider .slider-item .slider-text {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 750px !important;
+    padding: 0 !important;
+  }
+
+  /* Left column (text) should behave like .col-md-7 */
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth {
+    position: static !important;
+    width: 58.3333% !important;
+    max-width: 58.3333% !important;
+    padding: 0 2rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Right column (image) should behave like .col-md-5 */
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-5,
+  .owl-carousel.home-slider .slider-item .slider-text .img-about,
+  .owl-carousel.home-slider .slider-item .slider-text .img-about .img,
+  .owl-carousel.home-slider .slider-item .slider-text .img-about img {
+    position: static !important;
+    width: 41.6667% !important;
+    max-width: 41.6667% !important;
+    margin: 0 !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Keep the text vertically centered within its column */
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
+    position: relative !important;
+    top: auto !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure h1 size and spacing for desktop */
+  .owl-carousel.home-slider .slider-item .slider-text h1 {
+    font-size: 60px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* --- FORCE GRID: stronger desktop/tablet/mobile enforcement --- */
+@media (min-width: 992px) {
+  /* Make sure slider-text acts as a two-column flex container */
+  .owl-carousel.home-slider .slider-item .slider-text {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Left column = ~7/12 */
+  .owl-carousel.home-slider .slider-item .slider-text > .one-forth,
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-7 {
+    -webkit-box-flex: 0 !important;
+    -ms-flex: 0 0 58.3333% !important;
+    flex: 0 0 58.3333% !important;
+    max-width: 58.3333% !important;
+    box-sizing: border-box !important;
+    padding-right: 2rem !important;
+  }
+
+  /* Right column = ~5/12 */
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-5,
+  .owl-carousel.home-slider .slider-item .slider-text > .img-about,
+  .owl-carousel.home-slider .slider-item .slider-text .img-about .img {
+    -webkit-box-flex: 0 !important;
+    -ms-flex: 0 0 41.6667% !important;
+    flex: 0 0 41.6667% !important;
+    max-width: 41.6667% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    text-align: center !important;
+  }
+
+  /* Ensure text block stays vertically centered */
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    margin: 0 !important;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text h1 {
+    font-size: 60px !important;
+  }
+}
+
+/* Mobile: stack and center with consistent image sizing */
+@media (max-width: 991.98px) {
+  .owl-carousel.home-slider .slider-item .slider-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    padding: 2.5rem 1rem !important;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text > .one-forth,
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-7,
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-5 {
+    -webkit-box-flex: 0 !important;
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
+    position: relative !important;
+    transform: none !important;
+    padding: 0 0 1rem 0 !important;
+    text-align: center !important;
+  }
+
+  .owl-carousel.home-slider .slider-item .slider-text .img-about img,
+  .img-about img {
+    width: 70% !important;
+    max-width: 360px !important;
+    height: auto !important;
+    margin: 1rem auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+/* --- FINAL ENFORCE: strong overrides (desktop + mobile) --- */
+@media (min-width: 992px) {
+  /* Reset any negative z-index/absolute positioning that is breaking layout */
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth,
+  .owl-carousel.home-slider .slider-item .slider-text .one-third {
+    z-index: auto !important;
+    position: static !important;
+  }
+
+  /* Force slider-text to behave like a two-column row */
+  .owl-carousel.home-slider .slider-item .slider-text,
+  .slider-text {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Left (text) column: ~7/12 */
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-7,
+  .owl-carousel.home-slider .slider-item .slider-text > .one-forth {
+    flex: 0 0 58.3333% !important;
+    max-width: 58.3333% !important;
+    box-sizing: border-box !important;
+    padding-right: 2rem !important;
+    order: 1 !important;
+  }
+
+  /* Right (image) column: ~5/12 */
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-5,
+  .owl-carousel.home-slider .slider-item .slider-text > .img-about {
+    flex: 0 0 41.6667% !important;
+    max-width: 41.6667% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    order: 2 !important;
+  }
+
+  /* Keep the text vertically centered inside its column */
+  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text,
+  .slider-text .text {
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  /* Constrain image size on desktop */
+  .owl-carousel.home-slider .slider-item .slider-text .img-about img,
+  .img-about img {
+    width: 100% !important;
+    max-width: 360px !important;
+    height: auto !important;
+    margin: 0 !important;
+    object-fit: cover !important;
+    border-radius: 15px !important;
+    display: block !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  /* Force stacking and centered content on mobile */
+  .owl-carousel.home-slider .slider-item .slider-text,
+  .slider-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    padding: 2.5rem 1rem !important;
+    text-align: center !important;
+  }
+
+  /* Make both columns full-width and flow in document order */
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-7,
+  .owl-carousel.home-slider .slider-item .slider-text > .col-md-5,
+  .owl-carousel.home-slider .slider-item .slider-text > .one-forth,
+  .owl-carousel.home-slider .slider-item .slider-text > .img-about {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Center and size image on mobile */
+  .owl-carousel.home-slider .slider-item .slider-text .img-about img,
+  .img-about img {
+    width: 70% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    margin: 1rem auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+
+  /* Smaller, readable headings on mobile */
+  .owl-carousel.home-slider .slider-item .slider-text h1,
+  .slider-text h1 {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+  }
+  .owl-carousel.home-slider .slider-item .slider-text h2,
+  .slider-text h2 {
+    font-size: 20px !important;
+  }
+
+  /* Ensure nav/dots won't overlap hero content */
+  .owl-carousel.home-slider .owl-nav,
+  .owl-carousel.home-slider .owl-dots {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 1rem !important;
+  }
+}
