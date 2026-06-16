@@ -277,50 +277,54 @@
 				<div class="overlay"></div>
 				<div class="container">
 					<div class="row d-md-flex no-gutters slider-text align-items-center" data-scrollax-parent="true">
-					    <!-- Text column -->
-					    <div class="col-md-7 one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-					        <div class="text">
-					            <span class="subheading">Hello!</span>
-					            <h1 class="mb-4 mt-3">I'm <span>Rifat Bin Siraj</span></h1>
-					            <span id="typing-animation"></span>
-					            <script>
-					                (function() {
-					                    if (window._typingAnimationInitialized) return;
-					                    window._typingAnimationInitialized = true;
-					                    var el = document.getElementById('typing-animation');
-					                    var texts = ['Senior Full Stack Engineer', 'Software Engineer', 'AI Platform Builder'];
-					                    function playTypingAnimation(text) {
-					                        for (var i = 0; i < text.length; i++) {
-					                            (function(idx) {
-					                                setTimeout(function() {
-					                                    el.textContent += text[idx];
-					                                }, idx * 200);
-					                            })(i);
-					                        }
-					                        setTimeout(function() {
-					                            el.textContent = '';
-					                            playTypingAnimation(texts[(texts.indexOf(text) + 1) % texts.length]);
-					                        }, text.length * 200);
-					                    }
-					                    playTypingAnimation(texts[0]);
-					                })();
-					            </script>
-					            <br><br>
-					            <h2>A Senior Full Stack Engineer &amp; Founder of DrutoAI</h2>
-					            <p>
-					                <a href="https://www.linkedin.com/in/rifatbinsiraj/" class="btn btn-primary py-3 px-4">LinkedIn</a>
-					                <a href="https://github.com/Rifat024" class="btn btn-white btn-outline-white py-3 px-4">GitHub</a>
-		                <a href="https://drutoai.com" class="btn btn-primary py-3 px-4">DrutoAI</a>
-					            </p>
-					        </div>
-					    </div>
+						<!-- Text column -->
+						<div class="col-md-7 one-forth d-flex align-items-center ftco-animate"
+							data-scrollax=" properties: { translateY: '70%' }">
+							<div class="text">
+								<span class="subheading">Hello!</span>
+								<h1 class="mb-4 mt-3">I'm <span>Rifat Bin Siraj</span></h1>
+								<span id="typing-animation"></span>
+								<script>
+									(function () {
+										if (window._typingAnimationInitialized) return;
+										window._typingAnimationInitialized = true;
+										var el = document.getElementById('typing-animation');
+										var texts = ['Senior Full Stack Engineer', 'Software Engineer', 'AI Platform Builder'];
+										function playTypingAnimation(text) {
+											for (var i = 0; i < text.length; i++) {
+												(function (idx) {
+													setTimeout(function () {
+														el.textContent += text[idx];
+													}, idx * 200);
+												})(i);
+											}
+											setTimeout(function () {
+												el.textContent = '';
+												playTypingAnimation(texts[(texts.indexOf(text) + 1) % texts.length]);
+											}, text.length * 200);
+										}
+										playTypingAnimation(texts[0]);
+									})();
+								</script>
+								<br><br>
+								<h2>A Senior Full Stack Engineer &amp; Founder of DrutoAI</h2>
+								<p>
+									<a href="https://www.linkedin.com/in/rifatbinsiraj/"
+										class="btn btn-primary py-3 px-4">LinkedIn</a>
+									<a href="https://github.com/Rifat024"
+										class="btn btn-white btn-outline-white py-3 px-4">GitHub</a>
+									<a href="https://drutoai.com" class="btn btn-primary py-3 px-4">DrutoAI</a>
+								</p>
+							</div>
+						</div>
 
-					    <!-- Image column - responsive and centered -->
-					    <div class="col-md-5 d-flex justify-content-center align-items-center">
-					        <div class="img-about img d-flex align-items-stretch">
-					            <img src="images/about.webp" alt="About me" class="img-fluid" loading="lazy" style="max-width:360px; width:100%; height:auto; border-radius:15px;">
-					        </div>
-					    </div>
+						<!-- Image column - responsive and centered -->
+						<div class="col-md-5 d-flex justify-content-center align-items-center">
+							<div class="img-about img d-flex align-items-stretch">
+								<img src="images/about.webp" alt="About me" class="img-fluid" loading="lazy"
+									style="max-width:360px; width:100%; height:auto; border-radius:15px;">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -343,7 +347,8 @@
 									<div class="col-sm-6 col-md-7">
 										<div class="about-info">
 											<p><span class="title-s">Name: </span> <span>Rifat Bin Siraj</span></p>
-											<p><span class="title-s">Job Role: </span> <span>Senior Full Stack Engineer</span>
+											<p><span class="title-s">Job Role: </span> <span>Senior Full Stack
+													Engineer</span>
 											</p>
 											<p><span class="title-s">Experience: </span> <span>5+ Years</span></p>
 											<p><span class="title-s">Address: </span> <span>Dhaka, Bangladesh</span></p>
@@ -353,7 +358,8 @@
 
 								<div class="skill-mf">
 									<p class="title-s">Skills</p>
-									<span>JavaScript / TypeScript (React, Node.js, NestJS)</span> <span class="pull-right">95%</span>
+									<span>JavaScript / TypeScript (React, Node.js, NestJS)</span> <span
+										class="pull-right">95%</span>
 									<div class="progress">
 										<div class="progress-bar" role="progressbar" style="width: 95%;"
 											aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
@@ -372,13 +378,15 @@
 											aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 
-									<span>Databases (PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch)</span> <span class="pull-right">85%</span>
+									<span>Databases (PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch)</span> <span
+										class="pull-right">85%</span>
 									<div class="progress">
 										<div class="progress-bar" role="progressbar" style="width: 85%"
 											aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 
-									<span>DevOps & AI/LLM (Docker, CI/CD, Kafka, Claude/GPT/Gemini)</span> <span class="pull-right">85%</span>
+									<span>DevOps & AI/LLM (Docker, CI/CD, Kafka, Claude/GPT/Gemini)</span> <span
+										class="pull-right">85%</span>
 									<div class="progress">
 										<div class="progress-bar" role="progressbar" style="width: 85%"
 											aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
@@ -394,12 +402,16 @@
 								<h1 class="big">About</h1>
 								<h2 class="mb-4">About Me</h2>
 								<p>Full Stack Software Engineer with 5+ years of experience building and scaling
-									production-grade web apps, cloud-native serverless systems, and AI-powered platforms.
-									Founder and lead engineer of DrutoAI, a live pay-as-you-go AI chat platform integrating
-									Claude, GPT, and Gemini. Proven impact: 50% faster APIs, 60% fewer production bugs, and
+									production-grade web apps, cloud-native serverless systems, and AI-powered
+									platforms.
+									Founder and lead engineer of DrutoAI, a live pay-as-you-go AI chat platform
+									integrating
+									Claude, GPT, and Gemini. Proven impact: 50% faster APIs, 60% fewer production bugs,
+									and
 									95% test coverage.</p>
 								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Senior Full Stack Engineer</span></li>
+									<li class="d-flex"><span>Profile:</span> <span>Senior Full Stack Engineer</span>
+									</li>
 									<li class="d-flex"><span>Education:</span> <span>B.Sc. in Computer Science &
 											Engineering — RUET</span></li>
 									<li class="d-flex"><span>Language:</span> <span>English, Bengali</span></li>
@@ -420,7 +432,8 @@
 								<p><a href="https://www.linkedin.com/in/rifatbinsiraj/"
 										class="btn btn-primary py-3 px-3">LinkedIn</a>
 									<a href="https://github.com/Rifat024" class="btn btn-primary py-3 px-3">GitHub</a>
-									<a href="https://drutoai.com" class="btn btn-primary py-3 px-3">DrutoAI</a></p>
+									<a href="https://drutoai.com" class="btn btn-primary py-3 px-3">DrutoAI</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -465,8 +478,10 @@
 						<span class="position">DrutoAI</span>
 						<p class="mt-4">
 						<ul>
-							<li>Built a full-stack pay-per-chat AI platform with pluggable LLM providers (Claude, OpenAI, OpenRouter).</li>
-							<li>NestJS + MongoDB backend (JWT, Swagger, usage metering, credit billing) with React + Vite + TypeScript + Tailwind front-end, real-time streaming, and Bangla support.</li>
+							<li>Built a full-stack pay-per-chat AI platform with pluggable LLM providers (Claude,
+								OpenAI, OpenRouter).</li>
+							<li>NestJS + MongoDB backend (JWT, Swagger, usage metering, credit billing) with React +
+								Vite + TypeScript + Tailwind front-end, real-time streaming, and Bangla support.</li>
 							<li>Integrated bKash payments and shipped native iOS &amp; Android apps via Capacitor.</li>
 						</ul>
 						</p>
@@ -643,7 +658,8 @@
 							style="background-image: url('images/proj_qa-studio.jpg');">
 						</a>
 						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://web.e2etestautomation.com/">QA Studio — AI-Powered API Testing
+							<h3 class="heading"><a href="https://web.e2etestautomation.com/">QA Studio — AI-Powered API
+									Testing
 									Platform</a></h3>
 							<p>Technology: NestJS, Fastify, MongoDB, BullMQ, React, Material UI, ReactFlow, Monaco,
 								Vercel AI SDK, MCP, AWS.</p>
@@ -697,7 +713,8 @@
 							style="background-image: url('images/proj_associate360.jpg');">
 						</a>
 						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://employee.associate360view.com/login">Associate 360 — HR, Payroll &amp;
+							<h3 class="heading"><a href="https://employee.associate360view.com/login">Associate 360 —
+									HR, Payroll &amp;
 									Finance Suite</a></h3>
 							<p>Technology: Serverless Microservices, DynamoDB Streams, Memcached, Pino.</p>
 						</div>
@@ -750,7 +767,7 @@
 				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 					<div class="block-18">
 						<div class="text">
-							<strong class="number" data-number="30">0</strong>
+							<strong class="number" data-number="40">0</strong>
 							<span>Projects</span>
 						</div>
 					</div>
