@@ -204,6 +204,30 @@ export class AppController {
         tech: 'Serverless, Node.js, React.js, DynamoDB, Lambda, API Gateway, SNS, SES',
         external: true,
       },
+      {
+        title: 'AI Call Center',
+        url: 'https://github.com/Rifat024/Call-Center',
+        tech: 'NestJS, Fastify, MongoDB, React, Vite, Redux Toolkit, Tailwind, Vapi Voice AI, ShurjoPay',
+        external: true,
+      },
+      {
+        title: 'EduAI — AI-Powered Learning Platform',
+        url: 'https://github.com/Rifat024/eduai',
+        tech: 'React, TypeScript, Vite, Tailwind, NestJS, Fastify, MongoDB, Anthropic Claude',
+        external: true,
+      },
+      {
+        title: 'BD Payment Verify',
+        url: 'https://pay-frontend-iota.vercel.app/dashboard',
+        tech: 'Android SMS capture, NestJS backend, automatic bKash/Nagad/Rocket payment verification',
+        external: true,
+      },
+      {
+        title: 'ShopVerse — Full-Stack E-Commerce',
+        url: 'https://github.com/Rifat024/ecommerce',
+        tech: 'NestJS, MongoDB, React, Vite, Tailwind, Redux Toolkit, AWS S3, JWT',
+        external: true,
+      },
     ];
   }
 
