@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "--prefix", "server", "start:dev"],
+      "port": 3000
+    },
+    {
+      "name": "portfolio-client",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "--prefix", "client", "dev"],
+      "port": 5173
+    }
+  ]
+}
