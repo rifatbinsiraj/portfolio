@@ -1,0 +1,31 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1f150a"/>
+      <stop offset="1" stop-color="#382413"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="65%">
+      <stop offset="0" stop-color="#ffbd39" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#ffbd39" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+  <g transform="translate(20,20)">
+    <circle cx="10" cy="10" r="6" fill="#ff5f56"/>
+    <circle cx="32" cy="10" r="6" fill="#ffbd2e"/>
+    <circle cx="54" cy="10" r="6" fill="#27c93f"/>
+  </g>
+  <!-- shield -->
+  <g transform="translate(400,190)">
+    <path d="M0,-95 L85,-65 V15 C85,75 45,110 0,130 C-45,110 -85,75 -85,15 V-65 Z" fill="#ffbd39"/>
+    <path d="M0,-95 L85,-65 V15 C85,75 45,110 0,130 Z" fill="#ffffff" opacity="0.12"/>
+    <!-- terminal glyph with blocked script -->
+    <rect x="-40" y="-25" width="80" height="55" rx="6" fill="#12161c"/>
+    <text x="-30" y="10" font-family="Menlo, monospace" font-size="20" font-weight="700" fill="#ffbd39">&gt;_</text>
+    <circle cx="24" cy="-3" r="16" fill="#e04b4b"/>
+    <path d="M17,-10 L31,4 M31,-10 L17,4" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#ffffff">postinstall-guardian</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffbd39">npm package &#183; block unapproved install scripts</text>
+</svg>
