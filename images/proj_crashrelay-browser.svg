@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#1a2233"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="65%">
+      <stop offset="0" stop-color="#4fa3ff" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#4fa3ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+  <g transform="translate(20,20)">
+    <circle cx="10" cy="10" r="6" fill="#ff5f56"/>
+    <circle cx="32" cy="10" r="6" fill="#ffbd2e"/>
+    <circle cx="54" cy="10" r="6" fill="#27c93f"/>
+  </g>
+  <!-- browser window -->
+  <g transform="translate(400,195)">
+    <rect x="-135" y="-90" width="270" height="180" rx="12" fill="#ffffff" opacity="0.94"/>
+    <rect x="-135" y="-90" width="270" height="34" rx="12" fill="#e5e9ef"/>
+    <circle cx="-113" cy="-73" r="6" fill="#ff5f56"/>
+    <circle cx="-93" cy="-73" r="6" fill="#ffbd2e"/>
+    <circle cx="-73" cy="-73" r="6" fill="#27c93f"/>
+    <!-- error glyph -->
+    <path d="M0,-40 L45,40 H-45 Z" fill="none" stroke="#4fa3ff" stroke-width="8" stroke-linejoin="round"/>
+    <line x1="0" y1="-14" x2="0" y2="12" stroke="#4fa3ff" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="0" cy="26" r="4.5" fill="#4fa3ff"/>
+  </g>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#ffffff">crashrelay-browser</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#4fa3ff">npm package &#183; catches window.onerror &amp; reports it</text>
+</svg>
