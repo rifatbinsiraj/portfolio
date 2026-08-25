@@ -4,14 +4,34 @@
     {
       "name": "portfolio-server",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "--prefix", "server", "start:dev"],
+      "runtimeArgs": [
+        "run",
+        "--prefix",
+        "server",
+        "start:dev"
+      ],
       "port": 3000
     },
     {
       "name": "portfolio-client",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "--prefix", "client", "dev"],
+      "runtimeArgs": [
+        "run",
+        "--prefix",
+        "client",
+        "dev"
+      ],
       "port": 5173
+    },
+    {
+      "name": "portfolio-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8099"
+      ],
+      "port": 8099
     }
   ]
 }

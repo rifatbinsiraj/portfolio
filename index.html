@@ -21,41 +21,62 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script type="text/javascript">
 		document.addEventListener('DOMContentLoaded', function () {
-			emailjs.init("DuLGkblFWpE6Deu07");
+			// FormSubmit alias for rifatrabbi024@gmail.com (keeps the address out of the page source).
+			var FORM_ENDPOINT = "https://formsubmit.co/ajax/c155f7f2379f05a899bf63a14b9e7168";
 
-			document.getElementById('contact-form').addEventListener('submit', function (event) {
-				event.preventDefault(); // Prevent the default form submission
+			var form = document.getElementById('contact-form');
+			var status = document.getElementById('contact-form-status');
 
-				// Collect form data
-				const name = document.getElementById('name').value;
-				const email = document.getElementById('email').value;
-				const subject = document.getElementById('subject').value;
-				const message = document.getElementById('message').value;
+			function setStatus(text, state) {
+				status.textContent = text;
+				status.className = 'form-status ' + (state || '');
+			}
 
-				// Disable submit button to prevent multiple sends
-				const submitButton = this.querySelector('input[type="submit"]');
+			form.addEventListener('submit', function (event) {
+				event.preventDefault();
+
+				var submitButton = form.querySelector('input[type="submit"]');
 				submitButton.disabled = true;
 				submitButton.value = "Sending...";
-				const emailParams = {
-					from_name: name,
-					from_email: email,
-					subject: subject,
-					message: message
-				};
-				console.log(emailParams, "emailParams");
+				setStatus("Sending your message...", "");
 
-				// Send the email using EmailJS
-				emailjs.send("service_0w1gd33", "template_ph89t8u", emailParams)
+				var payload = {
+					name: document.getElementById('name').value.trim(),
+					email: document.getElementById('email').value.trim(),
+					subject: document.getElementById('subject').value.trim(),
+					message: document.getElementById('message').value.trim(),
+					_subject: "Portfolio contact: " + document.getElementById('subject').value.trim(),
+					_template: "table",
+					_captcha: "false"
+				};
+
+				fetch(FORM_ENDPOINT, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"Accept": "application/json"
+					},
+					body: JSON.stringify(payload)
+				})
 					.then(function (response) {
-						alert("Thank you! Your message has been sent.");
-						document.getElementById('contact-form').reset(); // Reset form fields
-						submitButton.disabled = false;
-						submitButton.value = "Send";
-					}, function (error) {
-						alert("Oops! Something went wrong, and we couldn't send your message.");
+						return response.json().then(function (data) {
+							if (!response.ok || data.success === "false" || data.success === false) {
+								throw new Error(data.message || "Request failed");
+							}
+							return data;
+						});
+					})
+					.then(function () {
+						setStatus("Thank you! Your message has been sent.", "success");
+						form.reset();
+					})
+					.catch(function (error) {
+						console.error("Contact form error:", error);
+						setStatus("Sorry, the message could not be sent. Please try again, or reach me through one of the links below.", "error");
+					})
+					.then(function () {
 						submitButton.disabled = false;
 						submitButton.value = "Send";
 					});
@@ -245,6 +266,22 @@
 
 		.contact-form .text-center {
 			margin-top: 20px;
+		}
+
+		.contact-form .form-status {
+			margin-top: 15px;
+			text-align: center;
+			font-size: 15px;
+			min-height: 22px;
+			color: #cccccc;
+		}
+
+		.contact-form .form-status.success {
+			color: #f0b429;
+		}
+
+		.contact-form .form-status.error {
+			color: #ff6b6b;
 		}
 	</style>
 
@@ -1071,6 +1108,7 @@
 						<div class="text-center">
 							<input type="submit" value="Send" class="btn btn-primary">
 						</div>
+						<p id="contact-form-status" class="form-status" role="status" aria-live="polite"></p>
 					</form>
 				</section>
 
@@ -1124,40 +1162,6 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
 	<script src="js/main.js"></script>
-	<!-- <script>
-		document.getElementById('contact-form').addEventListener('submit', function (event) {
-			event.preventDefault(); // Prevent the default form submission
-
-			// Collect form data
-			const name = document.getElementById('name').value;
-			const email = document.getElementById('email').value;
-			const subject = document.getElementById('subject').value;
-			const message = document.getElementById('message').value;
-
-			// Disable submit button to prevent multiple sends
-			const submitButton = this.querySelector('input[type="submit"]');
-			submitButton.disabled = true;
-			submitButton.value = "Sending...";
-
-			// Send the email using EmailJS
-			emailjs.send("service_0w1gd33", "template_ph89t8u", {
-				from_name: name,
-				from_email: email,
-				subject: subject,
-				message: message
-			})
-				.then(function (response) {
-					alert("Thank you! Your message has been sent.");
-					document.getElementById('contact-form').reset(); // Reset form fields
-					submitButton.disabled = false;
-					submitButton.value = "Send";
-				}, function (error) {
-					alert("Oops! Something went wrong, and we couldn't send your message.");
-					submitButton.disabled = false;
-					submitButton.value = "Send";
-				});
-		});
-	</script> -->
 </body>
 
 </html>
