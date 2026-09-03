@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#101c2b"/>
+      <stop offset="1" stop-color="#1b2e42"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="32%" r="68%">
+      <stop offset="0" stop-color="#3ad0a0" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#3ad0a0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+  <g transform="translate(20,20)">
+    <circle cx="10" cy="10" r="6" fill="#ff5f56"/>
+    <circle cx="32" cy="10" r="6" fill="#ffbd2e"/>
+    <circle cx="54" cy="10" r="6" fill="#27c93f"/>
+  </g>
+  <!-- customer message bubble -->
+  <g>
+    <rect x="150" y="90" width="250" height="56" rx="18" fill="#ffffff" opacity="0.9"/>
+    <path d="M168,146 l0,22 l26,-22 Z" fill="#ffffff" opacity="0.9"/>
+    <rect x="174" y="108" width="150" height="9" rx="4.5" fill="#1b2e42" opacity="0.55"/>
+    <rect x="174" y="124" width="96" height="9" rx="4.5" fill="#1b2e42" opacity="0.35"/>
+  </g>
+  <!-- bot reply bubble -->
+  <g>
+    <rect x="400" y="186" width="250" height="72" rx="18" fill="#3ad0a0"/>
+    <path d="M632,258 l0,22 l-26,-22 Z" fill="#3ad0a0"/>
+    <rect x="424" y="206" width="200" height="9" rx="4.5" fill="#0f2a22" opacity="0.6"/>
+    <rect x="424" y="222" width="164" height="9" rx="4.5" fill="#0f2a22" opacity="0.45"/>
+    <rect x="424" y="238" width="112" height="9" rx="4.5" fill="#0f2a22" opacity="0.3"/>
+  </g>
+  <!-- channel dots -->
+  <g>
+    <circle cx="250" cy="300" r="22" fill="#ffffff" opacity="0.14"/>
+    <circle cx="310" cy="300" r="22" fill="#ffffff" opacity="0.14"/>
+    <circle cx="370" cy="300" r="22" fill="#ffffff" opacity="0.14"/>
+    <circle cx="250" cy="300" r="7" fill="#3ad0a0"/>
+    <circle cx="310" cy="300" r="7" fill="#ffbd39"/>
+    <circle cx="370" cy="300" r="7" fill="#ff8a5c"/>
+  </g>
+  <text x="400" y="400" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#ffffff">ShopDesk</text>
+  <text x="400" y="428" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#3ad0a0">Multi-Tenant AI Commerce Assistant &#183; NestJS &#183; React</text>
+</svg>
