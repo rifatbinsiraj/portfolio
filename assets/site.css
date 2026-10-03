@@ -1548,3 +1548,38 @@ a {
   border: 1px solid var(--rule);
   vertical-align: 1px;
 }
+
+.publication {
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+  max-width: var(--measure);
+}
+
+.publication .pub-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.publication .pub-meta {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.publication .pub-meta + p:not(.pub-meta) {
+  margin-top: 12px;
+}
+
+.publication .status {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--live);
+  background: var(--live-soft);
+}

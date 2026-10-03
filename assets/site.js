@@ -316,6 +316,7 @@
         '.client-work > article',
         '.packages > li',
         '.timeline > li',
+        '.publication',
         '.about-photo',
         '.skills > div',
         '.highlights > li',
