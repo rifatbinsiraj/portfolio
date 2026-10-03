@@ -168,9 +168,46 @@ a {
   height: 18px;
 }
 
-@media (max-width: 720px) {
+.menu-button {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
   .site-nav .nav-link {
     display: none;
+  }
+
+  .menu-button {
+    display: grid;
+  }
+
+  .mobile-menu:not([hidden]) {
+    display: grid;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    padding: 8px var(--gutter) 16px;
+    box-shadow: 0 18px 30px -20px rgba(10, 20, 40, 0.5);
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: 0;
   }
 }
 

@@ -200,6 +200,41 @@
     }
   }
 
+  function setupMobileMenu() {
+    try {
+      var button = document.getElementById('menu-button');
+      var menu = document.getElementById('mobile-menu');
+      if (!button || !menu) return;
+      var setOpen = function (open) {
+        menu.hidden = !open;
+        button.setAttribute('aria-expanded', String(open));
+        button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      button.addEventListener('click', function (event) {
+        try {
+          event.stopPropagation();
+          setOpen(menu.hidden);
+        } catch (error) {
+          console.error('Menu toggle failed', error);
+        }
+      });
+      menu.addEventListener('click', function (event) {
+        if (event.target.closest('a')) setOpen(false);
+      });
+      document.addEventListener('click', function () {
+        if (!menu.hidden) setOpen(false);
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !menu.hidden) {
+          setOpen(false);
+          button.focus();
+        }
+      });
+    } catch (error) {
+      console.error('Menu setup failed', error);
+    }
+  }
+
   function setupContactForm() {
     try {
       var form = document.getElementById('contact-form');
@@ -450,6 +485,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     setupThemeControls();
+    setupMobileMenu();
     setupContactForm();
     setupYear();
     setupReveal();
