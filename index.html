@@ -26,6 +26,7 @@
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="wrap">
@@ -33,24 +34,66 @@
       <nav class="site-nav" aria-label="Main">
         <a class="nav-link" href="#work">Work</a>
         <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#impact">Impact</a>
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            aria-hidden="true">
-            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" />
-          </svg>
-        </button>
+        <div class="theme-menu">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+          </button>
+          <button class="theme-toggle" id="theme-button" type="button" aria-label="Theme settings"
+            aria-expanded="false" aria-controls="theme-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 10-10c0 2.8-2.2 4-4 4h-2.2a2 2 0 0 0-1.4 3.4A1.6 1.6 0 0 1 12 22z" />
+              <circle cx="7.5" cy="11" r="1.2" fill="currentColor" />
+              <circle cx="11" cy="7" r="1.2" fill="currentColor" />
+              <circle cx="16" cy="8.5" r="1.2" fill="currentColor" />
+            </svg>
+          </button>
+          <div class="theme-panel" id="theme-panel" hidden>
+            <p class="panel-label" id="mode-label">Mode</p>
+            <div class="segmented" role="radiogroup" aria-labelledby="mode-label">
+              <button type="button" role="radio" data-mode="light" aria-checked="false">Light</button>
+              <button type="button" role="radio" data-mode="dark" aria-checked="false">Dark</button>
+              <button type="button" role="radio" data-mode="system" aria-checked="true">System</button>
+            </div>
+            <p class="panel-label" id="accent-label">Colour</p>
+            <div class="swatches" role="radiogroup" aria-labelledby="accent-label">
+              <button type="button" role="radio" data-accent="ocean" aria-label="Ocean" aria-checked="true"
+                style="--swatch: #2f4bd8"></button>
+              <button type="button" role="radio" data-accent="violet" aria-label="Violet" aria-checked="false"
+                style="--swatch: #7c3aed"></button>
+              <button type="button" role="radio" data-accent="emerald" aria-label="Emerald" aria-checked="false"
+                style="--swatch: #0f7f5c"></button>
+              <button type="button" role="radio" data-accent="sunset" aria-label="Sunset" aria-checked="false"
+                style="--swatch: #c94a14"></button>
+              <button type="button" role="radio" data-accent="rose" aria-label="Rose" aria-checked="false"
+                style="--swatch: #c92f60"></button>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"><span></span><span></span></div>
       <div class="wrap">
         <div class="hero-intro">
           <h1 class="hero-name">Rifat<br>Bin Siraj</h1>
           <p class="hero-role">Senior full stack engineer and founder of DrutoAI.</p>
+          <p class="hero-typed">I build <strong id="typed">AI products</strong><span class="caret"
+              aria-hidden="true"></span></p>
           <p class="hero-summary">I build production web apps, cloud-native serverless systems and AI products,
             from the React front end to the NestJS or Spring Boot back end and the AWS underneath. Most of what I
             build, I also run.</p>
@@ -112,6 +155,10 @@
       </div>
     </section>
 
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span>React</span><span>TypeScript</span><span>NestJS</span><span>Node.js</span><span>Spring Boot</span><span>AWS Lambda</span><span>DynamoDB</span><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>Docker</span><span>GitHub Actions</span><span>Kafka</span><span>Elasticsearch</span><span>Socket.IO</span><span>Tailwind</span><span>Claude</span><span>OpenAI</span><span>MCP</span><span>React</span><span>TypeScript</span><span>NestJS</span><span>Node.js</span><span>Spring Boot</span><span>AWS Lambda</span><span>DynamoDB</span><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>Docker</span><span>GitHub Actions</span><span>Kafka</span><span>Elasticsearch</span><span>Socket.IO</span><span>Tailwind</span><span>Claude</span><span>OpenAI</span><span>MCP</span></div>
+    </div>
+
     <section class="section" id="work">
       <div class="wrap">
         <div class="section-head">
@@ -151,8 +198,10 @@
             </a>
             <h4><a href="https://drutoai.com/">DrutoAI</a></h4>
             <p class="domain">drutoai.com</p>
-            <p>Pay-per-chat AI platform with Claude, OpenAI and OpenRouter models, bKash payments and native iOS
-              and Android apps. NestJS, MongoDB, React, Vite, TypeScript, Tailwind, Capacitor.</p>
+            <p>Pay-per-chat AI platform for Bangladesh with pluggable Claude, OpenAI and OpenRouter models, real-time
+              streaming, Bangla support, usage metering and credit billing. Chat packages are bought through bKash, and
+              it ships as native iOS and Android apps. NestJS, MongoDB, Swagger, React, Vite, TypeScript, Tailwind,
+              Capacitor.</p>
           </article>
 
           <article class="product">
@@ -161,8 +210,11 @@
             </a>
             <h4><a href="https://bot.drutoai.com/">ShopDesk</a></h4>
             <p class="domain">bot.drutoai.com</p>
-            <p>Multi-tenant assistant that answers shop customers on Messenger, WhatsApp and Instagram. NestJS,
-              Fastify, MongoDB, Redis, BullMQ, Socket.IO, React, Vite, Claude and OpenAI, Meta APIs.</p>
+            <p>Multi-tenant sales assistant for online stores. It answers customers on Messenger, WhatsApp, Instagram
+              and web chat in Bangla or English and takes orders in the conversation. Exactly-once messaging through
+              job-id dedupe, per-conversation locks and compare-and-set claims; 61k lines under 184 test specs.
+              NestJS 11, Fastify, MongoDB, Redis, BullMQ, React, Vite, Docker Compose, multi-provider tool calling
+              with RAG.</p>
           </article>
 
           <article class="product">
@@ -212,38 +264,42 @@
             <img src="images/proj_qa-studio.jpg" alt="QA Studio" loading="lazy">
             <div class="body">
               <h4><a href="https://web.e2etestautomation.com/">QA Studio</a></h4>
-              <p>AI-powered API testing platform. NestJS, Fastify, MongoDB, BullMQ, React, Material UI, ReactFlow,
-                Monaco, Vercel AI SDK, MCP, AWS.</p>
+              <p>API testing and QA automation with AI-generated tests from Claude, OpenAI and Gemini, mock servers and
+                API-collection management. NestJS and Fastify microservices, MongoDB, BullMQ, React, Material UI,
+                ReactFlow, Monaco, Vercel AI SDK, MCP, AWS.</p>
             </div>
           </article>
           <article>
             <img src="images/proj_ata.jpg" alt="ATA governance platform" loading="lazy">
             <div class="body">
               <h4><a href="https://web.governance.dev/">ATA API governance</a></h4>
-              <p>API governance and documentation platform. Node.js, Express, NestJS, MongoDB, Redis, MCP, Spectral
-                CLI, React micro-frontends.</p>
+              <p>API governance and documentation platform with a Spectral-based CLI for OpenAPI linting, and React
+                micro-frontends for the doc portal, governance and pricing. Node.js, Express, NestJS, MongoDB, Redis,
+                MCP.</p>
             </div>
           </article>
           <article>
             <img src="images/proj_sniffer.jpg" alt="Sniffer" loading="lazy">
             <div class="body">
               <h4><a href="https://app.snifferweb.com/">Sniffer</a></h4>
-              <p>Defect tracking and QA tool. NestJS microservices, Anthropic AI, AWS SQS, KMS and SES, React,
-                CodeMirror, Redis, Docker Compose.</p>
+              <p>Defect tracking and QA collaboration with CodeMirror editors and drag and drop. NestJS microservices,
+                Anthropic AI, AWS SQS, KMS and SES, React, Redis, Docker Compose.</p>
             </div>
           </article>
           <article>
             <img src="images/proj_associate360.jpg" alt="Associate 360" loading="lazy">
             <div class="body">
               <h4><a href="https://employee.associate360view.com/login">Associate 360</a></h4>
-              <p>HR, payroll and finance suite. Serverless microservices, DynamoDB Streams, Memcached, Pino.</p>
+              <p>HR, payroll and finance suite covering companies, timesheets, salaries, payments and finance.
+                Serverless microservices, DynamoDB Streams, Memcached, Pino.</p>
             </div>
           </article>
           <article>
             <img src="images/proj_d2c.jpg" alt="D2C marketing platform" loading="lazy">
             <div class="body">
               <h4><a href="https://github.com/Rifat024">D2C marketing and campaigns</a></h4>
-              <p>Campaign platform on AWS Lambda, DynamoDB, KMS, Cognito, SES, SNS and MJML.</p>
+              <p>Campaign building, persona management, communications and approval workflows. Serverless AWS Lambda,
+                DynamoDB, KMS, Cognito, SES, SNS, MJML.</p>
             </div>
           </article>
           <article>
@@ -272,7 +328,8 @@
             <img src="images/proj_3.png" alt="Ghuddy hotel booking for users" loading="lazy">
             <div class="body">
               <h4><a href="https://ghuddy.com/">Hotel booking for travellers</a></h4>
-              <p>Ghuddy's customer booking platform. Spring Boot, PostgreSQL, Firebase, AWS S3, EC2, CI/CD.</p>
+              <p>Ghuddy's travel and hotel booking platform with Elasticsearch search, Kafka events and SurjoPay payments.
+                Spring Boot, Spring Data JPA, Spring Security, PostgreSQL, Flyway, Firebase, AWS S3, Swagger.</p>
             </div>
           </article>
           <article>
@@ -320,7 +377,8 @@
             <p>Converts PDF, Word, Excel, CSV, HTML, JSON, text and images to clean Markdown.</p>
           </li>
           <li><a href="https://www.npmjs.com/package/api-collection-converter">api-collection-converter</a>
-            <p>Converts API collections between Postman, Swagger, OpenAPI, Insomnia and HAR.</p>
+            <p>Converts API collections between Postman, Swagger, OpenAPI, Insomnia, HAR, cURL, RAML, GraphQL, WSDL
+              and AWS API Gateway.</p>
           </li>
         </ul>
 
@@ -343,14 +401,18 @@
               <h3>Software Engineer</h3>
               <p class="where">Digital Bridge</p>
               <ul>
-                <li>Building and shipping production full-stack applications (React.js, NestJS/Node.js,
-                  PostgreSQL/MongoDB) with a focus on scalable, cloud-native architecture.</li>
-                <li>Designing RESTful and GraphQL APIs with query optimization, indexing and caching to keep
-                  response latency low under growing load.</li>
-                <li>Developing and maintaining AWS serverless infrastructure (Lambda, API Gateway, S3, DynamoDB) and
-                  CI/CD pipelines with automated test gates via GitHub Actions.</li>
-                <li>Collaborating on architecture decisions, code reviews and sprint planning to deliver reliable,
-                  well-tested features on schedule.</li>
+                <li>Deliver features across 5+ independently deployed services (React front end, GraphQL API and
+                  resolvers, transportation and refund) on an AWS Lambda returns platform of 80+ microservice
+                  repositories.</li>
+                <li>Integrated a pricing rules engine into operator return pricing with action-scoped evaluation, and
+                  added bounded, role-gated price overrides plus a persisted return-fee decision honoured by the refund
+                  service.</li>
+                <li>Root-caused a silent production bug across five e-commerce integrations (Shopify, WooCommerce,
+                  PrestaShop, SFCC) and shipped six fixes.</li>
+                <li>Built a Playwright and TypeScript end-to-end suite for the API and UI, and wrote design docs in
+                  GitLab and Confluence.</li>
+                <li>Run multi-repository release batches (dry-run merges, conflict resolution, per-service merge
+                  requests) and triage incidents in CloudWatch.</li>
               </ul>
             </div>
           </li>
@@ -369,7 +431,7 @@
             </div>
           </li>
           <li>
-            <div class="when">Nov 2022 – Jul 2026</div>
+            <div class="when">Nov 2022 – Jul 2026<br>3.7 years</div>
             <div>
               <h3>Full-Stack Engineer</h3>
               <p class="where">Sense &amp; Respond Software LLC</p>
@@ -388,7 +450,7 @@
             </div>
           </li>
           <li>
-            <div class="when">Jul 2021 – Nov 2022</div>
+            <div class="when">Jul 2021 – Nov 2022<br>1.4 years</div>
             <div>
               <h3>Software Engineer</h3>
               <p class="where">Ghuddy Limited</p>
@@ -433,6 +495,50 @@
       </div>
     </section>
 
+    <section class="section" id="impact">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Impact</h2>
+          <p>Results from the teams and products I have worked on.</p>
+        </div>
+        <ul class="highlights">
+          <li>
+            <strong>50%</strong>
+            <h3>Faster APIs</h3>
+            <p>Halved average server response time across services through query optimization, caching and endpoint
+              refactoring.</p>
+          </li>
+          <li>
+            <strong>95%</strong>
+            <h3>Test coverage</h3>
+            <p>Unit and integration suites (Jest, JUnit, Mockito) in CI/CD, with no production regressions for 18+
+              months in a row.</p>
+          </li>
+          <li>
+            <strong>60%</strong>
+            <h3>Fewer bugs</h3>
+            <p>Automated test gates and code-review standards cut the defects reaching production.</p>
+          </li>
+          <li>
+            <strong>5 in 12</strong>
+            <h3>Products in a year</h3>
+            <p>Led a cross-functional team to design, build and ship five full-stack products on time and to
+              spec.</p>
+          </li>
+          <li>
+            <strong>50k+</strong>
+            <h3>Active users</h3>
+            <p>Served by the 8+ production applications I architected and delivered at Sense &amp; Respond.</p>
+          </li>
+          <li>
+            <strong>80+</strong>
+            <h3>Microservice repos</h3>
+            <p>On the AWS Lambda returns platform I ship to at Digital Bridge.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section" id="about">
       <div class="wrap about">
         <div class="about-photo">
@@ -442,33 +548,54 @@
           <div class="section-head" style="grid-template-columns: 1fr; margin-bottom: 24px;">
             <h2>About</h2>
           </div>
-          <p>I'm a full stack software engineer in Dhaka with more than five years of experience building and scaling
+          <p>I'm a full stack software engineer and AI platform builder in Dhaka with more than five years of experience building and scaling
             production web apps, cloud-native serverless systems and AI-powered platforms. I work across the stack:
-            React front ends, Node.js, NestJS, Express.js and Java Spring Boot back ends, PostgreSQL and MongoDB, and
-            AWS.</p>
+            React front ends, Node.js, NestJS, Express.js and Java Spring Boot back ends, GraphQL, PostgreSQL and
+            MongoDB, and AWS.</p>
           <p>I founded DrutoAI, where I build and run AI products end to end. In past roles I made APIs 50% faster,
             cut production bugs by 60%, reached 95% test coverage and shipped five products in twelve months.</p>
           <p>I speak English and Bengali. Outside work I like travelling.</p>
           <dl class="skills">
             <div>
               <dt>Languages</dt>
-              <dd>JavaScript and TypeScript (React, Node.js, NestJS), Java (Spring Boot, Hibernate)</dd>
+              <dd>JavaScript, TypeScript, Java, SQL, Bash</dd>
             </div>
             <div>
-              <dt>Cloud</dt>
-              <dd>AWS Lambda, API Gateway, S3, Cognito, DynamoDB, SNS, SES, EC2</dd>
+              <dt>Front end</dt>
+              <dd>React.js, Vite, Material UI, Tailwind CSS, Redux Toolkit, Apollo Client, HTML5, CSS3</dd>
+            </div>
+            <div>
+              <dt>Back end</dt>
+              <dd>Node.js, NestJS, Express.js, Fastify, Spring Boot, REST, GraphQL, microservices, serverless, JWT and
+                Cognito auth, Shopify, WooCommerce, PrestaShop and SFCC APIs</dd>
             </div>
             <div>
               <dt>Data</dt>
-              <dd>PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch</dd>
+              <dd>PostgreSQL, MongoDB, MySQL, DynamoDB, Redis, Elasticsearch, Prisma, TypeORM, Flyway, query
+                optimization</dd>
+            </div>
+            <div>
+              <dt>Cloud</dt>
+              <dd>AWS Lambda, EC2, S3, API Gateway, Cognito, SNS, SES, DynamoDB, KMS, Secrets Manager, CloudWatch,
+                Serverless Framework</dd>
             </div>
             <div>
               <dt>Delivery</dt>
-              <dd>Docker, CI/CD with GitHub Actions, Kafka, BullMQ</dd>
+              <dd>CI/CD, GitHub Actions, GitLab CI, Docker, Docker Compose, Apache Kafka, BullMQ, Firebase, Git,
+                Linux</dd>
             </div>
             <div>
-              <dt>AI</dt>
-              <dd>Claude, GPT and Gemini APIs, model routing, RAG, evals, MCP</dd>
+              <dt>AI and LLMs</dt>
+              <dd>Anthropic Claude, OpenAI GPT, Google Gemini, OpenRouter, Vercel AI SDK, MCP, real-time streaming,
+                model routing, RAG, evals, usage metering and billing</dd>
+            </div>
+            <div>
+              <dt>Testing</dt>
+              <dd>Jest, JUnit, Mockito, Mocha, Playwright, TDD</dd>
+            </div>
+            <div>
+              <dt>Also</dt>
+              <dd>Capacitor mobile apps, bKash and SurjoPay payments, Agile and Scrum</dd>
             </div>
           </dl>
         </div>
