@@ -2,1179 +2,533 @@
 <html lang="en">
 
 <head>
-	<title>Rifat Bin Siraj | Portfolio</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-	<link rel="apple-touch-icon" href="images/favicon.svg">
-
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="css/aos.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<link rel="stylesheet" href="css/flaticon.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/style.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function () {
-			// FormSubmit alias for rifatrabbi024@gmail.com (keeps the address out of the page source).
-			var FORM_ENDPOINT = "https://formsubmit.co/ajax/c155f7f2379f05a899bf63a14b9e7168";
-
-			var form = document.getElementById('contact-form');
-			var status = document.getElementById('contact-form-status');
-
-			function setStatus(text, state) {
-				status.textContent = text;
-				status.className = 'form-status ' + (state || '');
-			}
-
-			form.addEventListener('submit', function (event) {
-				event.preventDefault();
-
-				var submitButton = form.querySelector('input[type="submit"]');
-				submitButton.disabled = true;
-				submitButton.value = "Sending...";
-				setStatus("Sending your message...", "");
-
-				var payload = {
-					name: document.getElementById('name').value.trim(),
-					email: document.getElementById('email').value.trim(),
-					subject: document.getElementById('subject').value.trim(),
-					message: document.getElementById('message').value.trim(),
-					_subject: "Portfolio contact: " + document.getElementById('subject').value.trim(),
-					_template: "table",
-					_captcha: "false"
-				};
-
-				fetch(FORM_ENDPOINT, {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-						"Accept": "application/json"
-					},
-					body: JSON.stringify(payload)
-				})
-					.then(function (response) {
-						return response.json().then(function (data) {
-							if (!response.ok || data.success === "false" || data.success === false) {
-								throw new Error(data.message || "Request failed");
-							}
-							return data;
-						});
-					})
-					.then(function () {
-						setStatus("Thank you! Your message has been sent.", "success");
-						form.reset();
-					})
-					.catch(function (error) {
-						console.error("Contact form error:", error);
-						setStatus("Sorry, the message could not be sent. Please try again, or reach me through one of the links below.", "error");
-					})
-					.then(function () {
-						submitButton.disabled = false;
-						submitButton.value = "Send";
-					});
-			});
-		});
-	</script>
-
-
-
-	<style>
-		.one-third.js-fullheight.order-md-last.img {
-			background-image: url(images/1797.png);
-			background-size: contain;
-			background-repeat: no-repeat;
-			background-position: bottom;
-			height: 80vh;
-			display: flex;
-			align-items: flex-end;
-		}
-
-		.about-mf .box-shadow-full {
-			padding-top: 4rem;
-			padding-bottom: 4rem;
-		}
-
-		.about-mf .about-img {
-			margin-bottom: 2rem;
-		}
-
-		.img-about img {
-			border-radius: 15px;
-			/* Soft rounding */
-			background-color: #ffbd39;
-			/* Adds yellow background color */
-			padding: 10px;
-			/* Adds padding around the image */
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
-			/* Adds shadow */
-			width: 100%;
-			/* Ensures the image is responsive */
-			max-width: 300px;
-			/* Limit the maximum size */
-			margin: 20px auto;
-			/* Center the image with some margin */
-			display: block;
-			/* Ensure it's block-level for centering */
-		}
-
-		/* For circular images with smooth borders and fixed size */
-		.about-mf .about-img img {
-			border-radius: 50%;
-			/* Makes the image round */
-			background-color: #ffbd39;
-			/* Adds yellow background color */
-			padding: 5px;
-			/* Adds some padding around the image */
-			width: 150px;
-			height: 150px;
-			/* Ensure the image remains square */
-			object-fit: cover;
-			/* Ensures the image fills the container without distortion */
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
-			/* Adds shadow */
-			display: block;
-			margin: 0 auto;
-		}
-
-		.skill-mf .progress {
-			margin: .5rem 0 1.2rem 0;
-			border-radius: 0;
-			height: .7rem;
-		}
-
-		.skill-mf .progress .progress-bar {
-			height: .7rem;
-			background-color: #ffbd39;
-		}
-
-		#typing-animation {
-			position: relative;
-			font-size: 30px;
-			font-weight: bold;
-			color: rgb(255, 255, 255);
-			overflow: hidden;
-			white-space: nowrap;
-			animation: typing 3s steps(20, end) infinite;
-		}
-
-		#typing-animation:before {
-			content: "";
-			top: 0;
-			left: 0;
-			width: 0;
-			height: 100%;
-			background-color: #ccc;
-			animation: typing-cursor 0.5s ease-in-out infinite;
-		}
-
-		@keyframes typing {
-			from {
-				width: 0;
-			}
-
-			to {
-				width: 100%;
-			}
-		}
-
-		@keyframes typing-cursor {
-			from {
-				width: 5px;
-			}
-
-			to {
-				width: 0;
-			}
-		}
-
-		.zoom-effect {
-			overflow: hidden;
-			transition: transform 0.3s ease-out;
-		}
-
-		.zoom-effect:hover {
-			transform: scale(1.1);
-		}
-
-		/* General Styles */
-		body {
-			font-family: 'Poppins', sans-serif;
-			color: #fff;
-			background-color: #000;
-		}
-
-		.text-center {
-			text-align: center;
-		}
-
-		/* Contact Form Styles */
-		.contact-form {
-			max-width: 600px;
-			margin: 0 auto;
-			background-color: #1a1a1a;
-			padding: 20px;
-			border-radius: 10px;
-			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-		}
-
-		.contact-form .form-group {
-			margin-bottom: 20px;
-		}
-
-		.contact-form .form-group label {
-			display: block;
-			font-size: 16px;
-			margin-bottom: 5px;
-			color: #ffbd39;
-		}
-
-		.contact-form .form-control {
-			width: 100%;
-			padding: 10px;
-			border: none;
-			border-radius: 5px;
-			background-color: #333;
-			color: #fff;
-		}
-
-		.contact-form .form-control:focus {
-			outline: none;
-			box-shadow: 0 0 10px rgba(255, 189, 57, 0.7);
-		}
-
-		.contact-form .btn {
-			background-color: #ffbd39;
-			color: #000;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 30px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-		}
-
-		.contact-form .btn:hover {
-			background-color: #e6a832;
-		}
-
-		.contact-form .text-center {
-			margin-top: 20px;
-		}
-
-		.contact-form .form-status {
-			margin-top: 15px;
-			text-align: center;
-			font-size: 15px;
-			min-height: 22px;
-			color: #cccccc;
-		}
-
-		.contact-form .form-status.success {
-			color: #f0b429;
-		}
-
-		.contact-form .form-status.error {
-			color: #ff6b6b;
-		}
-	</style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rifat Bin Siraj | Senior Full Stack Engineer</title>
+  <meta name="description"
+    content="Rifat Bin Siraj, senior full stack engineer in Dhaka and founder of DrutoAI. Seven AI products live, nine open-source npm packages, five years of production work.">
+  <meta property="og:title" content="Rifat Bin Siraj | Senior Full Stack Engineer">
+  <meta property="og:description"
+    content="Senior full stack engineer and founder of DrutoAI. Products, client work, open-source packages and experience.">
+  <meta property="og:image" content="images/proj_llm-autopilot-office.jpg">
+  <meta name="theme-color" content="#f2f3ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141a22" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js"></script>
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-		<div class="container">
-			<a class="navbar-brand" href="index.html">Rifat Bin Siraj</a>
-			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
-			</button>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">Rifat Bin Siraj</a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-link" href="#work">Work</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav nav ml-auto">
-					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-					<li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-					<li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div>
+          <h1 class="hero-name">Rifat<br>Bin Siraj</h1>
+          <p class="hero-role">Senior full stack engineer and founder of DrutoAI.</p>
+          <p class="hero-summary">I build production web apps, cloud-native serverless systems and AI products,
+            from the React front end to the NestJS or Spring Boot back end and the AWS underneath. Most of what I
+            build, I also run.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Get in touch</a>
+            <a class="button button-quiet" href="Rifat_Bin_Siraj_CV.pdf">Download CV</a>
+            <a class="button button-quiet" href="https://github.com/Rifat024">GitHub</a>
+            <a class="button button-quiet" href="https://www.linkedin.com/in/rifatbinsiraj/">LinkedIn</a>
+          </div>
+          <dl class="facts">
+            <div>
+              <dt>5+</dt>
+              <dd>years in production</dd>
+            </div>
+            <div>
+              <dt>40+</dt>
+              <dd>projects completed</dd>
+            </div>
+            <div>
+              <dt>7</dt>
+              <dd>products of my own, live</dd>
+            </div>
+            <div>
+              <dt>9</dt>
+              <dd>open-source npm packages</dd>
+            </div>
+          </dl>
+        </div>
 
-	<section id="home-section" class="hero">
-		<div class="home-slider owl-carousel">
-			<div class="slider-item">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row d-md-flex no-gutters slider-text align-items-center" data-scrollax-parent="true">
-						<!-- Text column -->
-						<div class="col-md-7 one-forth d-flex align-items-center ftco-animate"
-							data-scrollax=" properties: { translateY: '70%' }">
-							<div class="text">
-								<span class="subheading">Hello!</span>
-								<h1 class="mb-4 mt-3">I'm <span>Rifat Bin Siraj</span></h1>
-								<span id="typing-animation"></span>
-								<script>
-									(function () {
-										if (window._typingAnimationInitialized) return;
-										window._typingAnimationInitialized = true;
-										var el = document.getElementById('typing-animation');
-										var texts = ['Senior Full Stack Engineer', 'Software Engineer', 'AI Platform Builder'];
-										function playTypingAnimation(text) {
-											for (var i = 0; i < text.length; i++) {
-												(function (idx) {
-													setTimeout(function () {
-														el.textContent += text[idx];
-													}, idx * 200);
-												})(i);
-											}
-											setTimeout(function () {
-												el.textContent = '';
-												playTypingAnimation(texts[(texts.indexOf(text) + 1) % texts.length]);
-											}, text.length * 200);
-										}
-										playTypingAnimation(texts[0]);
-									})();
-								</script>
-								<br><br>
-								<h2>A Senior Full Stack Engineer &amp; Founder of DrutoAI</h2>
-								<p>
-									<a href="https://www.linkedin.com/in/rifatbinsiraj/"
-										class="btn btn-primary py-3 px-4">LinkedIn</a>
-									<a href="https://github.com/Rifat024"
-										class="btn btn-white btn-outline-white py-3 px-4">GitHub</a>
-									<a href="https://drutoai.com" class="btn btn-primary py-3 px-4">DrutoAI</a>
-								</p>
-							</div>
-						</div>
+        <aside class="board" aria-labelledby="board-title">
+          <div class="board-head">
+            <h2 id="board-title">Running now</h2>
+            <p>Products I built and operate</p>
+          </div>
+          <ol>
+            <li style="--row: 0"><a href="https://agent.drutoai.com/"><span class="status-dot"></span><span><span
+                    class="board-name">LLM Autopilot</span><span class="board-what">An office of AI agents and an
+                    LLM gateway</span></span><span class="board-domain">agent.drutoai.com</span></a></li>
+            <li style="--row: 1"><a href="https://drutoai.com/"><span class="status-dot"></span><span><span
+                    class="board-name">DrutoAI</span><span class="board-what">Pay-per-chat AI with Claude, GPT and
+                    Gemini</span></span><span class="board-domain">drutoai.com</span></a></li>
+            <li style="--row: 2"><a href="https://bot.drutoai.com/"><span class="status-dot"></span><span><span
+                    class="board-name">ShopDesk</span><span class="board-what">AI replies on Messenger, WhatsApp and
+                    Instagram</span></span><span class="board-domain">bot.drutoai.com</span></a></li>
+            <li style="--row: 3"><a href="https://callcenter.drutoai.com/"><span class="status-dot"></span><span><span
+                    class="board-name">AI Call Center</span><span class="board-what">Voice agents that answer the
+                    phone</span></span><span class="board-domain">callcenter.drutoai.com</span></a></li>
+            <li style="--row: 4"><a href="https://learn.drutoai.com/"><span class="status-dot"></span><span><span
+                    class="board-name">EduAI</span><span class="board-what">Learning platform with an AI
+                    tutor</span></span><span class="board-domain">learn.drutoai.com</span></a></li>
+            <li style="--row: 5"><a href="https://pay.drutoai.com/"><span class="status-dot"></span><span><span
+                    class="board-name">BD Payment Verify</span><span class="board-what">Confirms bKash, Nagad and Rocket
+                    payments</span></span><span class="board-domain">pay.drutoai.com</span></a></li>
+            <li style="--row: 6"><a href="https://shop.drutoai.com/"><span class="status-dot"></span><span><span
+                    class="board-name">ShopVerse</span><span class="board-what">Full-stack online
+                    store</span></span><span class="board-domain">shop.drutoai.com</span></a></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
 
-						<!-- Image column - responsive and centered -->
-						<div class="col-md-5 d-flex justify-content-center align-items-center">
-							<div class="img-about img d-flex align-items-stretch">
-								<img src="images/about.webp" alt="About me" class="img-fluid" loading="lazy"
-									style="max-width:360px; width:100%; height:auto; border-radius:15px;">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Work</h2>
+          <p>Products I designed, built and keep running; systems I built for employers and clients; and small
+            open-source tools that came out of that work.</p>
+        </div>
 
-	<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-		<div class="container">
-			<div class="row">
-				<div class="row d-flex align-items-stretch">
-					<div class="col-md-6 col-lg-5 d-flex">
-						<div class="img-about img d-flex align-items-stretch">
-							<div class="overlay">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-										<div class="img-about-small">
-											<img src="images/about-me.webp" alt="Rifat Bin Siraj" loading="lazy">
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-7">
-										<div class="about-info">
-											<p><span class="title-s">Name: </span> <span>Rifat Bin Siraj</span></p>
-											<p><span class="title-s">Job Role: </span> <span>Senior Full Stack
-													Engineer</span>
-											</p>
-											<p><span class="title-s">Experience: </span> <span>5+ Years</span></p>
-											<p><span class="title-s">Address: </span> <span>Dhaka, Bangladesh</span></p>
-										</div>
-									</div>
-								</div>
+        <h3 class="group-title">My products</h3>
+        <p class="group-note">Built and operated under DrutoAI. Each one is live and you can sign up.</p>
+        <div class="products">
+          <article class="product product-featured">
+            <a class="product-media" href="https://agent.drutoai.com/">
+              <img src="images/proj_llm-autopilot-office.jpg" width="1440" height="900"
+                alt="LLM Autopilot office view: departments as rooms, with an AI agent at each desk" loading="lazy">
+            </a>
+            <div>
+              <span class="tag">Newest</span>
+              <h4><a href="https://agent.drutoai.com/">LLM Autopilot</a></h4>
+              <p class="domain">agent.drutoai.com</p>
+              <p>An office of AI agents you can watch work. You give the office a goal; a manager agent splits it
+                into tasks, hands them out and reviews what comes back.</p>
+              <ul class="points">
+                <li>Gateway that sends each request to the cheapest model that can handle it, with a semantic
+                  cache</li>
+                <li>A trace for every step and a cost for every request</li>
+                <li>Tickets synced from Jira, GitHub, GitLab, Linear, Asana and ClickUp; 50+ integrations</li>
+                <li>NestJS, Fastify, MongoDB, Redis, Socket.IO, React, TypeScript, Tailwind, AWS S3, Docker, MCP
+                </li>
+              </ul>
+            </div>
+          </article>
 
-								<div class="skill-mf">
-									<p class="title-s">Skills</p>
-									<span>JavaScript / TypeScript (React, Node.js, NestJS)</span> <span
-										class="pull-right">95%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;"
-											aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+          <article class="product">
+            <a class="product-media" href="https://drutoai.com/">
+              <img class="fit-contain" src="images/proj_drutoai.jpg" alt="DrutoAI chat platform" loading="lazy">
+            </a>
+            <h4><a href="https://drutoai.com/">DrutoAI</a></h4>
+            <p class="domain">drutoai.com</p>
+            <p>Pay-per-chat AI platform with Claude, OpenAI and OpenRouter models, bKash payments and native iOS
+              and Android apps. NestJS, MongoDB, React, Vite, TypeScript, Tailwind, Capacitor.</p>
+          </article>
 
-									<span>Java (Spring Boot, Hibernate)</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%"
-											aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+          <article class="product">
+            <a class="product-media" href="https://bot.drutoai.com/">
+              <img src="images/proj_shopdesk.svg" alt="ShopDesk illustration" loading="lazy">
+            </a>
+            <h4><a href="https://bot.drutoai.com/">ShopDesk</a></h4>
+            <p class="domain">bot.drutoai.com</p>
+            <p>Multi-tenant assistant that answers shop customers on Messenger, WhatsApp and Instagram. NestJS,
+              Fastify, MongoDB, Redis, BullMQ, Socket.IO, React, Vite, Claude and OpenAI, Meta APIs.</p>
+          </article>
 
-									<span>AWS (Lambda, API Gateway, S3, Cognito, DynamoDB, SNS, SES)</span> <span
-										class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%"
-											aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+          <article class="product">
+            <a class="product-media" href="https://callcenter.drutoai.com/">
+              <img src="images/proj_ai-call-center.svg" alt="AI Call Center illustration" loading="lazy">
+            </a>
+            <h4><a href="https://callcenter.drutoai.com/">AI Call Center</a></h4>
+            <p class="domain">callcenter.drutoai.com</p>
+            <p>Voice AI agents that take calls for a business. NestJS, Fastify, MongoDB, React, Vite, Redux
+              Toolkit, Tailwind, Vapi voice AI, ShurjoPay.</p>
+          </article>
 
-									<span>Databases (PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch)</span> <span
-										class="pull-right">85%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%"
-											aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+          <article class="product">
+            <a class="product-media" href="https://learn.drutoai.com/">
+              <img src="images/proj_eduai.svg" alt="EduAI illustration" loading="lazy">
+            </a>
+            <h4><a href="https://learn.drutoai.com/">EduAI</a></h4>
+            <p class="domain">learn.drutoai.com</p>
+            <p>AI-powered learning platform with a Claude tutor. React, TypeScript, Vite, Tailwind, NestJS, Fastify,
+              MongoDB.</p>
+          </article>
 
-									<span>DevOps & AI/LLM (Docker, CI/CD, Kafka, Claude/GPT/Gemini)</span> <span
-										class="pull-right">85%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%"
-											aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+          <article class="product">
+            <a class="product-media" href="https://pay.drutoai.com/">
+              <img src="images/proj_payment-verify.svg" alt="BD Payment Verify illustration" loading="lazy">
+            </a>
+            <h4><a href="https://pay.drutoai.com/">BD Payment Verify</a></h4>
+            <p class="domain">pay.drutoai.com</p>
+            <p>Confirms bKash, Nagad and Rocket payments automatically by reading the payment SMS on an Android
+              phone. Android SMS capture, NestJS back end.</p>
+          </article>
 
-					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-						<div class="row justify-content-start pb-3">
-							<div class="col-md-12 heading-section ftco-animate">
-								<h1 class="big">About</h1>
-								<h2 class="mb-4">About Me</h2>
-								<p>Full Stack Software Engineer with 5+ years of experience building and scaling
-									production-grade web apps, cloud-native serverless systems, and AI-powered
-									platforms. Strong across the stack — React.js front-ends, Node.js/NestJS/Express.js
-									and Java/Spring Boot back-ends, PostgreSQL/MongoDB, and AWS.
-									Founder and lead engineer of DrutoAI, a live pay-as-you-go AI chat platform
-									integrating
-									Claude, GPT, and Gemini. Proven impact: 50% faster APIs, 60% fewer production bugs,
-									95% test coverage, and 5+ products shipped in 12 months.</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Senior Full Stack Engineer</span>
-									</li>
-									<li class="d-flex"><span>Education:</span> <span>B.Sc. in Computer Science &
-											Engineering — RUET</span></li>
-									<li class="d-flex"><span>Language:</span> <span>English, Bengali</span></li>
-									<li class="d-flex"><span>Tools & Technologies:</span> <span>React, Node.js, NestJS,
-											Java/Spring Boot, AWS, PostgreSQL, MongoDB, Docker, Git</span></li>
-									<li class="d-flex"><span>Interest:</span> <span>Software Development, AI Platforms,
-											Traveling</span></li>
-								</ul>
-							</div>
-						</div>
+          <article class="product">
+            <a class="product-media" href="https://shop.drutoai.com/">
+              <img src="images/proj_shopverse.svg" alt="ShopVerse illustration" loading="lazy">
+            </a>
+            <h4><a href="https://shop.drutoai.com/">ShopVerse</a></h4>
+            <p class="domain">shop.drutoai.com</p>
+            <p>Full-stack online store. NestJS, MongoDB, React, Vite, Tailwind, Redux Toolkit, AWS S3, JWT.</p>
+          </article>
+        </div>
 
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<span class="number" data-number="40">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://www.linkedin.com/in/rifatbinsiraj/"
-										class="btn btn-primary py-3 px-3">LinkedIn</a>
-									<a href="https://github.com/Rifat024" class="btn btn-primary py-3 px-3">GitHub</a>
-									<a href="https://drutoai.com" class="btn btn-primary py-3 px-3">DrutoAI</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+        <h3 class="group-title">Built for employers and clients</h3>
+        <p class="group-note">Production systems from my roles at Sense &amp; Respond Software and Ghuddy.</p>
+        <div class="client-work">
+          <article>
+            <img src="images/proj_qa-studio.jpg" alt="QA Studio" loading="lazy">
+            <div class="body">
+              <h4><a href="https://web.e2etestautomation.com/">QA Studio</a></h4>
+              <p>AI-powered API testing platform. NestJS, Fastify, MongoDB, BullMQ, React, Material UI, ReactFlow,
+                Monaco, Vercel AI SDK, MCP, AWS.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_ata.jpg" alt="ATA governance platform" loading="lazy">
+            <div class="body">
+              <h4><a href="https://web.governance.dev/">ATA API governance</a></h4>
+              <p>API governance and documentation platform. Node.js, Express, NestJS, MongoDB, Redis, MCP, Spectral
+                CLI, React micro-frontends.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_sniffer.jpg" alt="Sniffer" loading="lazy">
+            <div class="body">
+              <h4><a href="https://app.snifferweb.com/">Sniffer</a></h4>
+              <p>Defect tracking and QA tool. NestJS microservices, Anthropic AI, AWS SQS, KMS and SES, React,
+                CodeMirror, Redis, Docker Compose.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_associate360.jpg" alt="Associate 360" loading="lazy">
+            <div class="body">
+              <h4><a href="https://employee.associate360view.com/login">Associate 360</a></h4>
+              <p>HR, payroll and finance suite. Serverless microservices, DynamoDB Streams, Memcached, Pino.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_d2c.jpg" alt="D2C marketing platform" loading="lazy">
+            <div class="body">
+              <h4><a href="https://github.com/Rifat024">D2C marketing and campaigns</a></h4>
+              <p>Campaign platform on AWS Lambda, DynamoDB, KMS, Cognito, SES, SNS and MJML.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_asset-management.jpg" alt="Asset management API" loading="lazy">
+            <div class="body">
+              <h4><a href="https://github.com/Rifat024">Asset management API</a></h4>
+              <p>AWS serverless with Lambda, DynamoDB, Cognito, KMS, S3 and SNS, plus Jira and GitHub
+                integrations.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_4.jpg" alt="Company management" loading="lazy">
+            <div class="body">
+              <h4><a href="https://web.ata.dev/">Company management</a></h4>
+              <p>Serverless Node.js and React on DynamoDB, Lambda, API Gateway, SNS and SES.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_5.jpg" alt="All Things API" loading="lazy">
+            <div class="body">
+              <h4><a href="https://web.ata.dev/">All Things API</a></h4>
+              <p>Serverless Node.js and React on DynamoDB, Lambda, API Gateway, SNS and SES.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_3.png" alt="Ghuddy hotel booking for users" loading="lazy">
+            <div class="body">
+              <h4><a href="https://ghuddy.com/">Hotel booking for travellers</a></h4>
+              <p>Ghuddy's customer booking platform. Spring Boot, PostgreSQL, Firebase, AWS S3, EC2, CI/CD.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_2.png" alt="Ghuddy hotel booking for merchants" loading="lazy">
+            <div class="body">
+              <h4><a href="https://github.com/Rifat024">Hotel booking for merchants</a></h4>
+              <p>Where hotels manage rooms and bookings. Spring Boot, PostgreSQL, Firebase, AWS S3, EC2, CI/CD.</p>
+            </div>
+          </article>
+          <article>
+            <img src="images/proj_1.png" alt="Ghuddy hotel booking admin" loading="lazy">
+            <div class="body">
+              <h4><a href="https://github.com/Rifat024">Hotel booking admin</a></h4>
+              <p>Operations console for the booking platform. Spring Boot, PostgreSQL, AWS S3, EC2, CI/CD.</p>
+            </div>
+          </article>
+        </div>
 
-	<section class="ftco-section ftco-no-pb" id="resume-section">
-		<div class="container">
-			<div class="row justify-content-center pb-5">
-				<div class="col-md-10 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Resume</h1>
-					<h2 class="mb-4">Resume</h2>
-					<p>Highly skilled software engineer with 5+ years of experience in developing and optimizing
-						software solutions. Expertise in full-stack development, cloud-native serverless systems,
-						AI-powered platforms, and software architecture.</p>
-				</div>
-			</div>
+        <h3 class="group-title">Open-source npm packages</h3>
+        <p class="group-note">Small tools for keeping Node.js projects and CI pipelines safe and tidy.</p>
+        <ul class="packages">
+          <li><a href="https://www.npmjs.com/package/vuln-guardian">vuln-guardian</a>
+            <p>Finds vulnerable npm dependencies in a project and applies the safe fixes.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/secrets-guardian">secrets-guardian</a>
+            <p>Catches leaked API keys and credentials in a repo or staged files before they reach history.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/postinstall-guardian">postinstall-guardian</a>
+            <p>Lists install scripts in node_modules, the most common npm supply-chain attack path.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/license-guardian">license-guardian</a>
+            <p>Fails CI on copyleft or unknown dependency licenses that are not on your allow list.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/actions-guardian">actions-guardian</a>
+            <p>Finds GitHub Actions pinned to movable tags and pins them to a commit SHA.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/crashrelay">crashrelay</a>
+            <p>Turns back-end crashes, 5xx responses and error logs into Jira or GitHub issues, without
+              duplicates.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/crashrelay-browser">crashrelay-browser</a>
+            <p>A tiny, dependency-free snippet that reports browser errors to crashrelay.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/files-to-markdown">files-to-markdown</a>
+            <p>Converts PDF, Word, Excel, CSV, HTML, JSON, text and images to clean Markdown.</p>
+          </li>
+          <li><a href="https://www.npmjs.com/package/api-collection-converter">api-collection-converter</a>
+            <p>Converts API collections between Postman, Swagger, OpenAPI, Insomnia and HAR.</p>
+          </li>
+        </ul>
 
-			<!-- Align the download button to be in the same line as "Resume" -->
-			<div class="row justify-content-center pb-5">
-				<div class="col-md-12 text-center ftco-animate">
-					<!-- Add margin-top to create some space between the text and button -->
-					<p class="mt-3"><a href="Rifat_Bin_Siraj_CV.pdf" class="btn btn-primary py-4 px-5">Download CV</a>
-					</p>
-				</div>
-			</div>
+        <p class="more-link"><a class="button button-quiet" href="https://github.com/Rifat024">See more on
+            GitHub</a></p>
+      </div>
+    </section>
 
-			<!-- Experience Section -->
-			<div class="row">
-				<h1 class="big-4">Experience</h1>
-				<div class="underline"></div>
-			</div>
-			<br>
+    <section class="section" id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>Five years of full-stack development, cloud-native serverless systems, AI platforms and software
+            architecture.</p>
+        </div>
+        <ol class="timeline">
+          <li>
+            <div class="when">Aug 2026 – present</div>
+            <div>
+              <h3>Software Engineer</h3>
+              <p class="where">Digital Bridge</p>
+              <ul>
+                <li>Building and shipping production full-stack applications (React.js, NestJS/Node.js,
+                  PostgreSQL/MongoDB) with a focus on scalable, cloud-native architecture.</li>
+                <li>Designing RESTful and GraphQL APIs with query optimization, indexing and caching to keep
+                  response latency low under growing load.</li>
+                <li>Developing and maintaining AWS serverless infrastructure (Lambda, API Gateway, S3, DynamoDB) and
+                  CI/CD pipelines with automated test gates via GitHub Actions.</li>
+                <li>Collaborating on architecture decisions, code reviews and sprint planning to deliver reliable,
+                  well-tested features on schedule.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when">2026 – present</div>
+            <div>
+              <h3>Founder and Lead Engineer</h3>
+              <p class="where">DrutoAI</p>
+              <ul>
+                <li>Built a full-stack pay-per-chat AI platform with pluggable LLM providers (Claude, OpenAI,
+                  OpenRouter).</li>
+                <li>NestJS and MongoDB back end (JWT, Swagger, usage metering, credit billing) with a React, Vite,
+                  TypeScript and Tailwind front end, real-time streaming and Bangla support.</li>
+                <li>Integrated bKash payments and shipped native iOS and Android apps via Capacitor.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when">Nov 2022 – Jul 2026</div>
+            <div>
+              <h3>Full-Stack Engineer</h3>
+              <p class="where">Sense &amp; Respond Software LLC</p>
+              <ul>
+                <li>Architected and delivered 8+ production full-stack applications (React.js, NestJS, Express.js,
+                  MongoDB/PostgreSQL) serving 50,000+ active users.</li>
+                <li>Designed RESTful and GraphQL APIs that cut average response latency by 40% via query
+                  optimization, indexing and Redis caching.</li>
+                <li>Built and maintained AWS serverless infrastructure (Lambda, API Gateway, S3, Cognito, SNS,
+                  DynamoDB, KMS), reducing cloud costs by 20%.</li>
+                <li>Established CI/CD pipelines with automated Jest gates and GitHub Actions, reducing production
+                  bugs by 60% and enabling daily deployments.</li>
+                <li>Led architecture decisions and mentored 3 junior engineers through code reviews, sprint planning
+                  and pair programming.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jul 2021 – Nov 2022</div>
+            <div>
+              <h3>Software Engineer</h3>
+              <p class="where">Ghuddy Limited</p>
+              <ul>
+                <li>Built back-end microservices and REST APIs for a high-traffic travel and hotel-booking platform
+                  using Java and Spring Boot on PostgreSQL with Flyway migrations.</li>
+                <li>Implemented Elasticsearch-powered search and filtering for fast hotel, tour and listing
+                  discovery across large datasets.</li>
+                <li>Integrated AWS S3, SurjoPay payments, Firebase notifications, Apache Kafka events and Spring
+                  Mail transactional emails.</li>
+                <li>Reduced average API response time by 50% via JPA query tuning and PostgreSQL indexing; achieved
+                  95% test coverage with JUnit and Mockito.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="when">2016 – 2021</div>
+            <div>
+              <h3>B.Sc. in Computer Science and Engineering</h3>
+              <p class="where">Rajshahi University of Engineering &amp; Technology</p>
+              <p>Graduated with first class distinction.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">2013 – 2015</div>
+            <div>
+              <h3>Higher Secondary Certificate</h3>
+              <p class="where">Rajshahi Govt City College</p>
+              <p>GPA 5 in Science.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">2012 – 2013</div>
+            <div>
+              <h3>Secondary School Certificate</h3>
+              <p class="where">Rajshahi Govt Naohata High School</p>
+              <p>GPA 5 in Science.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="more-link"><a class="button button-primary" href="Rifat_Bin_Siraj_CV.pdf">Download CV</a></p>
+      </div>
+    </section>
 
-			<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">Aug 2026 - Present</span>
-						<h2>Software Engineer</h2>
-						<span class="position">Digital Bridge</span>
-						<p class="mt-4">
-						<ul>
-							<li>Building and shipping production full-stack applications (React.js, NestJS/Node.js,
-								PostgreSQL/MongoDB) with a focus on scalable, cloud-native architecture.</li>
-							<li>Designing RESTful and GraphQL APIs with query optimization, indexing, and caching to
-								keep response latency low under growing load.</li>
-							<li>Developing and maintaining AWS serverless infrastructure (Lambda, API Gateway, S3,
-								DynamoDB) and CI/CD pipelines with automated test gates via GitHub Actions.</li>
-							<li>Collaborating on architecture decisions, code reviews, and sprint planning to deliver
-								reliable, well-tested features on schedule.</li>
-						</ul>
-						</p>
-					</div>
-				</div>
+    <section class="section" id="about">
+      <div class="wrap about">
+        <div class="about-photo">
+          <img src="images/about.webp" width="760" height="1140" alt="Rifat Bin Siraj" loading="lazy">
+        </div>
+        <div class="about-text">
+          <div class="section-head" style="grid-template-columns: 1fr; margin-bottom: 24px;">
+            <h2>About</h2>
+          </div>
+          <p>I'm a full stack software engineer in Dhaka with more than five years of experience building and scaling
+            production web apps, cloud-native serverless systems and AI-powered platforms. I work across the stack:
+            React front ends, Node.js, NestJS, Express.js and Java Spring Boot back ends, PostgreSQL and MongoDB, and
+            AWS.</p>
+          <p>I founded DrutoAI, where I build and run AI products end to end. In past roles I made APIs 50% faster,
+            cut production bugs by 60%, reached 95% test coverage and shipped five products in twelve months.</p>
+          <p>I speak English and Bengali. Outside work I like travelling.</p>
+          <dl class="skills">
+            <div>
+              <dt>Languages</dt>
+              <dd>JavaScript and TypeScript (React, Node.js, NestJS), Java (Spring Boot, Hibernate)</dd>
+            </div>
+            <div>
+              <dt>Cloud</dt>
+              <dd>AWS Lambda, API Gateway, S3, Cognito, DynamoDB, SNS, SES, EC2</dd>
+            </div>
+            <div>
+              <dt>Data</dt>
+              <dd>PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch</dd>
+            </div>
+            <div>
+              <dt>Delivery</dt>
+              <dd>Docker, CI/CD with GitHub Actions, Kafka, BullMQ</dd>
+            </div>
+            <div>
+              <dt>AI</dt>
+              <dd>Claude, GPT and Gemini APIs, model routing, RAG, evals, MCP</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
 
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2026-Present</span>
-						<h2>Founder &amp; Lead Engineer</h2>
-						<span class="position">DrutoAI</span>
-						<p class="mt-4">
-						<ul>
-							<li>Built a full-stack pay-per-chat AI platform with pluggable LLM providers (Claude,
-								OpenAI, OpenRouter).</li>
-							<li>NestJS + MongoDB backend (JWT, Swagger, usage metering, credit billing) with React +
-								Vite + TypeScript + Tailwind front-end, real-time streaming, and Bangla support.</li>
-							<li>Integrated bKash payments and shipped native iOS &amp; Android apps via Capacitor.</li>
-						</ul>
-						</p>
-					</div>
-				</div>
+    <section class="section" id="contact">
+      <div class="wrap contact">
+        <div>
+          <div class="section-head" style="grid-template-columns: 1fr; margin-bottom: 24px;">
+            <h2>Contact</h2>
+            <p>Hiring, a project, or a question about something here: send a message and I'll reply by email.</p>
+          </div>
+          <ul class="contact-lines">
+            <li><span>Email</span><a href="mailto:rifatrabbi024@gmail.com">rifatrabbi024@gmail.com</a></li>
+            <li><span>Phone</span><a href="tel:+8801761233953">+880 1761 233953</a></li>
+            <li><span>Based in</span>Dhaka, Bangladesh</li>
+          </ul>
+          <ul class="socials">
+            <li><a href="https://www.linkedin.com/in/rifatbinsiraj/">LinkedIn</a></li>
+            <li><a href="https://github.com/Rifat024">GitHub</a></li>
+            <li><a href="https://drutoai.com/">DrutoAI</a></li>
+            <li><a href="https://www.youtube.com/@rifatbinsiraj1249">YouTube</a></li>
+            <li><a href="https://www.facebook.com/rifatbin.siraj/">Facebook</a></li>
+            <li><a href="https://www.instagram.com/rifat_bin_siraj/">Instagram</a></li>
+          </ul>
+        </div>
 
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">Nov 2022 - Jul 2026</span>
-						<h2>Full-Stack Engineer</h2>
-						<span class="position">Sense & Respond Software LLC</span>
-						<p class="mt-4">
-						<ul>
-							<li>Architected and delivered 8+ production full-stack applications (React.js, NestJS,
-								Express.js, MongoDB/PostgreSQL) serving 50,000+ active users.</li>
-							<li>Designed RESTful and GraphQL APIs that cut average response latency by 40% via query
-								optimization, indexing, and Redis caching.</li>
-							<li>Built and maintained AWS serverless infrastructure (Lambda, API Gateway, S3, Cognito,
-								SNS, DynamoDB, KMS), reducing cloud costs by 20%.</li>
-							<li>Established CI/CD pipelines with automated Jest gates and GitHub Actions, reducing
-								production bugs by 60% and enabling daily deployments.</li>
-							<li>Led architecture decisions and mentored 3 junior engineers through code reviews,
-								sprint planning, and pair programming.</li>
-						</ul>
-						</p>
-					</div>
-				</div>
+        <form class="contact-form" id="contact-form">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button class="button button-primary" type="submit">Send message</button>
+          <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">Jul 2021 - Nov 2022</span>
-						<h2>Software Engineer</h2>
-						<span class="position">Ghuddy Limited</span>
-						<p class="mt-4">
-						<ul>
-							<li>Built backend microservices and REST APIs for a high-traffic travel & hotel-booking
-								platform using Java and Spring Boot on PostgreSQL with Flyway migrations.</li>
-							<li>Implemented Elasticsearch-powered search and filtering for fast hotel, tour, and
-								listing discovery across large datasets.</li>
-							<li>Integrated AWS S3, SurjoPay payments, Firebase notifications, Apache Kafka events,
-								and Spring Mail transactional emails.</li>
-							<li>Reduced average API response time by 50% via JPA query tuning and PostgreSQL
-								indexing; achieved 95% test coverage with JUnit & Mockito.</li>
-						</ul>
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<br>
-			<br>
-
-			<!-- Education Section -->
-			<div class="row">
-				<h1 class="big-4">Education</h1>
-				<div class="underline"></div>
-			</div>
-			<br>
-
-			<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2016-2021</span>
-						<h2>Bachelor of Engineering</h2>
-						<span class="position">Rajshahi University of Engineering & Technology</span>
-						<p class="mt-4">Graduated with First class distinction in Computer Science & Engineering.</p>
-					</div>
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2013-2015</span>
-						<h2> Higher Secondary Certificate</h2>
-						<span class="position">Rajshahi Govt City College</span>
-						<p class="mt-4">Graduated with GPA-5 in Science.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2012-2013</span>
-						<h2> Secondary Certificate</h2>
-						<span class="position">Rajshahi Govt Naohata High School</span>
-						<p class="mt-4">Graduated with GPA-5 in Science.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section" id="project-section">
-		<div class="container">
-			<div class="row justify-content-center mb-5 pb-5">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Projects</h1>
-					<h2 class="mb-4">Projects</h2>
-					<p>Here are some of the key projects that I have worked on, showcasing my skills in full-stack
-						development and cloud technologies.</p>
-				</div>
-			</div>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/rifat024" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_1.png');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://github.com/rifat024">Hotel Booking Management System
-									for Admin</a></h3>
-							<p>Technology: Spring-Boot, PostgreSQL, AWS S3, EC2, CI/CD.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/rifat024" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_2.png');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://github.com/rifat024">Hotel Booking Management System
-									for Merchants</a></h3>
-							<p>Technology: Spring-Boot, PostgreSQL, Firebase, AWS S3, EC2, CI/CD.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry">
-						<a href="https://ghuddy.com" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_3.png');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://ghuddy.com">Hotel Booking Management System
-									for Users</a></h3>
-							<p>Technology: Spring-Boot, PostgreSQL, Firebase, AWS S3, EC2, CI/CD.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://web.ata.dev" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_4.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://web.ata.dev/">Company Management</a></h3>
-							<p>Technology: Serverless, Node.js, React.js, DynamoDB, Lambda, API Gateway, SNS, SES.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://web.ata.dev" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_5.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://web.ata.dev">All Things API</a></h3>
-							<p>Technology: Serverless, Node.js, React.js, DynamoDB, Lambda, API Gateway, SNS, SES.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://drutoai.com" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_drutoai.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://drutoai.com">DrutoAI — Pay-Per-Chat AI Platform</a>
-							</h3>
-							<p>Technology: NestJS, MongoDB, React, Vite, TypeScript, Tailwind, Claude/OpenAI/OpenRouter,
-								bKash, Capacitor (iOS/Android).</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://web.e2etestautomation.com/" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_qa-studio.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://web.e2etestautomation.com/">QA Studio — AI-Powered API
-									Testing
-									Platform</a></h3>
-							<p>Technology: NestJS, Fastify, MongoDB, BullMQ, React, Material UI, ReactFlow, Monaco,
-								Vercel AI SDK, MCP, AWS.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://web.governance.dev/" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_ata.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://web.governance.dev/">ATA — API Governance &amp;
-									Documentation Platform</a></h3>
-							<p>Technology: Node.js, Express, NestJS, MongoDB, Redis, MCP, Spectral CLI, React
-								Micro-Frontends.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://app.snifferweb.com/" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_sniffer.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://app.snifferweb.com/">Sniffer — Defect Tracking &amp; QA
-									Tool</a></h3>
-							<p>Technology: NestJS Microservices, Anthropic AI, AWS SQS/KMS/SES, React, CodeMirror,
-								Redis, Docker Compose.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/rifat024" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_d2c.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://github.com/rifat024">D2C Marketing &amp; Campaign
-									Platform</a></h3>
-							<p>Technology: Serverless AWS Lambda, DynamoDB, KMS, Cognito, SES, SNS, MJML.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://employee.associate360view.com/login" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_associate360.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://employee.associate360view.com/login">Associate 360 —
-									HR, Payroll &amp;
-									Finance Suite</a></h3>
-							<p>Technology: Serverless Microservices, DynamoDB Streams, Memcached, Pino.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://github.com/rifat024" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_asset-management.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://github.com/rifat024">Asset Management API</a></h3>
-							<p>Technology: AWS Serverless, Lambda, DynamoDB, Cognito, KMS, S3, SNS, Jira &amp; GitHub
-								integrations.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://www.npmjs.com/package/api-collection-converter" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_api-converter.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://www.npmjs.com/package/api-collection-converter">api-collection-converter
-									(npm)</a></h3>
-							<p>Technology: Published npm package converting API collections across Postman, Swagger,
-								OpenAPI, Insomnia, HAR, cURL, RAML, GraphQL, WSDL &amp; AWS API Gateway.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://callcenter.drutoai.com/" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_ai-call-center.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://callcenter.drutoai.com/">AI Call Center</a></h3>
-							<p>Technology: NestJS, Fastify, MongoDB, React, Vite, Redux Toolkit, Tailwind, Vapi Voice
-								AI, ShurjoPay.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://learn.drutoai.com/" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_eduai.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://learn.drutoai.com/">EduAI — AI-Powered
-									Learning Platform</a></h3>
-							<p>Technology: React, TypeScript, Vite, Tailwind, NestJS, Fastify, MongoDB, Anthropic
-								Claude.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row d-flex justify-content-center">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://pay.drutoai.com/" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_payment-verify.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://pay.drutoai.com/">BD Payment
-									Verify</a></h3>
-							<p>Technology: Android SMS capture, NestJS backend, automatic bKash/Nagad/Rocket payment
-								verification.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://shop.drutoai.com/" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_shopverse.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a href="https://shop.drutoai.com/">ShopVerse —
-									Full-Stack E-Commerce</a></h3>
-							<p>Technology: NestJS, MongoDB, React, Vite, Tailwind, Redux Toolkit, AWS S3, JWT.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://www.npmjs.com/package/files-to-markdown" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_files-to-markdown.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://www.npmjs.com/package/files-to-markdown">files-to-markdown
-									(npm)</a></h3>
-							<p>Technology: Node-native npm package converting PDF, Word, Excel, CSV, HTML, JSON, text
-								&amp; images to clean Markdown to cut LLM token usage.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://www.npmjs.com/package/vuln-guardian" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_vuln-guardian.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://www.npmjs.com/package/vuln-guardian">vuln-guardian
-									(npm)</a></h3>
-							<p>Technology: CLI &amp; library scanning a Node.js project for npm dependency vulnerabilities and auto-fixing the safe ones, with a daily GitHub Actions workflow generator.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://www.npmjs.com/package/postinstall-guardian" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_postinstall-guardian.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://www.npmjs.com/package/postinstall-guardian">postinstall-guardian
-									(npm)</a></h3>
-							<p>Technology: Scans node_modules for preinstall/install/postinstall scripts &mdash; the #1 npm supply-chain attack vector &mdash; and gates CI on unapproved ones.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="https://www.npmjs.com/package/secrets-guardian" class="block-20 zoom-effect"
-							style="background-image: url('images/proj_secrets-guardian.svg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<h3 class="heading"><a
-									href="https://www.npmjs.com/package/secrets-guardian">secrets-guardian
-									(npm)</a></h3>
-							<p>Technology: Scans a git working tree or staged files for leaked API keys and credentials before they hit history, with a pre-commit hook and redacted output.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-				<div class="row d-flex justify-content-center">
-					<div class="col-md-4 d-flex ftco-animate">
-						<div class="blog-entry justify-content-end">
-							<a href="https://www.npmjs.com/package/license-guardian" class="block-20 zoom-effect"
-								style="background-image: url('images/proj_license-guardian.svg');">
-							</a>
-							<div class="text mt-3 float-right d-block">
-								<h3 class="heading"><a
-										href="https://www.npmjs.com/package/license-guardian">license-guardian
-										(npm)</a></h3>
-								<p>Technology: Scans node_modules for dependency licenses and gates CI on copyleft or unrecognized licenses that aren&rsquo;t explicitly approved.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 d-flex ftco-animate">
-						<div class="blog-entry justify-content-end">
-							<a href="https://www.npmjs.com/package/actions-guardian" class="block-20 zoom-effect"
-								style="background-image: url('images/proj_actions-guardian.svg');">
-							</a>
-							<div class="text mt-3 float-right d-block">
-								<h3 class="heading"><a
-										href="https://www.npmjs.com/package/actions-guardian">actions-guardian
-										(npm)</a></h3>
-								<p>Technology: Scans GitHub Actions workflows for unpinned mutable-tag action references and auto-pins them to a commit SHA.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 d-flex ftco-animate">
-						<div class="blog-entry justify-content-end">
-							<a href="https://www.npmjs.com/package/crashrelay" class="block-20 zoom-effect"
-								style="background-image: url('images/proj_crashrelay.svg');">
-							</a>
-							<div class="text mt-3 float-right d-block">
-								<h3 class="heading"><a
-										href="https://www.npmjs.com/package/crashrelay">crashrelay
-										(npm)</a></h3>
-								<p>Technology: Catches backend crashes, HTTP 5xx responses, and error-log lines and auto-files a ticket in Jira or GitHub Issues, with fingerprint-based dedup.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br>
-				<div class="row d-flex justify-content-center">
-					<div class="col-md-4 d-flex ftco-animate">
-						<div class="blog-entry justify-content-end">
-							<a href="https://bot.drutoai.com/" class="block-20 zoom-effect"
-								style="background-image: url('images/proj_shopdesk.svg');">
-							</a>
-							<div class="text mt-3 float-right d-block">
-								<h3 class="heading"><a href="https://bot.drutoai.com/">ShopDesk &mdash; Multi-Tenant AI
-										Commerce Assistant</a></h3>
-								<p>Technology: NestJS, Fastify, MongoDB, Redis, BullMQ, Socket.IO, React, Vite,
-									Anthropic Claude &amp; OpenAI, Meta Messenger/WhatsApp/Instagram APIs.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 d-flex ftco-animate">
-						<div class="blog-entry justify-content-end">
-							<a href="https://www.npmjs.com/package/crashrelay-browser" class="block-20 zoom-effect"
-								style="background-image: url('images/proj_crashrelay-browser.svg');">
-							</a>
-							<div class="text mt-3 float-right d-block">
-								<h3 class="heading"><a
-										href="https://www.npmjs.com/package/crashrelay-browser">crashrelay-browser
-										(npm)</a></h3>
-								<p>Technology: Tiny, dependency-free browser snippet that catches window.onerror and unhandledrejection and reports them to a crashrelay ingestion endpoint.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-		</div>
-	</section>
-
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-		<div class="container">
-			<div class="row d-md-flex align-items-center">
-				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-					<div class="block-18">
-						<div class="text">
-							<strong class="number" data-number="20">0</strong>
-							<span>Achievements</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-					<div class="block-18">
-						<div class="text">
-							<strong class="number" data-number="40">0</strong>
-							<span>Projects</span>
-						</div>
-					</div>
-				</div>
-				<!-- <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-					<div class="block-18">
-						<div class="text">
-							<strong class="number" data-number="1000">0</strong>
-							<span>Mentored Students</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-					<div class="block-18">
-						<div class="text">
-							<strong class="number" data-number="500">0</strong>
-							<span>Cups of coffee</span>
-						</div>
-					</div>
-				</div> -->
-			</div>
-		</div>
-
-		<div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>More projects on<span> Github </span> </h2>
-					<div class="heading">
-						<h4> I love to solve Complex problems &amp; learn new technologies </h4>
-						<br>
-						<p><a href="https://github.com/rifat024" class="btn btn-primary py-3 px-5">GitHub</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-		<div class="container">
-			<!-- Header Section (Centered) -->
-			<div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Contact</h1>
-					<h2 class="mb-4">Contact Me</h2>
-					<p>Below are the details to reach out to me!</p>
-				</div>
-			</div>
-
-			<!-- Contact Information (Centered) -->
-			<div class="row d-flex justify-content-center contact-info mb-5">
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-map-signs"></span>
-						</div>
-						<h3 class="mb-4">Address</h3>
-						<p>Dhaka, Bangladesh</p>
-					</div>
-				</div>
-
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-phone2"></span>
-						</div>
-						<h3 class="mb-4">Contact Number</h3>
-						<p><a href="tel://+8801761233953">+8801761233953</a></p>
-					</div>
-				</div>
-
-				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
-					<div class="align-self-stretch box p-4 text-center">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="icon-paper-plane"></span>
-						</div>
-						<h3 class="mb-4">Email Address</h3>
-						<p><a href="mailto:rifatrabbi024@gmail.com">rifatrabbi024@gmail.com</a></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				<br>
-				<br>
-				<section id="contact-form-section" style="margin-top: 50px;">
-					<h2 class="text-center">Ask Me</h2>
-					<form id="contact-form" class="contact-form">
-						<div class="form-group">
-							<label for="name">Name:</label>
-							<input type="text" id="name" name="name" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label for="email">Email:</label>
-							<input type="email" id="email" name="email" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label for="subject">Subject:</label>
-							<input type="text" id="subject" name="subject" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label for="message">Message:</label>
-							<textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-						</div>
-						<div class="text-center">
-							<input type="submit" value="Send" class="btn btn-primary">
-						</div>
-						<p id="contact-form-status" class="form-status" role="status" aria-live="polite"></p>
-					</form>
-				</section>
-
-				<br>
-				<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-					<li class="ftco-animate normal-txt">Find me on </li>
-					<li class="ftco-animate"><a href="https://www.youtube.com/@rifatbinsiraj1249"><span
-								class="icon-youtube"></span></a></li>
-					<li class="ftco-animate"><a href="https://www.linkedin.com/in/rifatbinsiraj/"><span
-								class="icon-linkedin"></span></a></li>
-					<li class="ftco-animate"><a href="https://www.facebook.com/rifatbin.siraj/"><span
-								class="icon-facebook"></span></a></li>
-					<li class="ftco-animate"><a href="https://www.instagram.com/rifat_bin_siraj/"><span
-								class="icon-instagram"></span></a></li>
-				</ul>
-				<br>
-			</div>
-		</div>
-	</section>
-
-	<footer class="ftco-footer ftco-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<p>&copy;
-						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-						is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-				stroke="#F96D00" />
-		</svg></div>
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/scrollax.min.js"></script>
-	<script src="js/main.js"></script>
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; <span id="year">2026</span> Rifat Bin Siraj</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
 </body>
 
 </html>
