@@ -36,6 +36,8 @@
       toggle.addEventListener('click', function () {
         try {
           var next = currentTheme() === 'dark' ? 'light' : 'dark';
+          toggle.classList.add('is-turning');
+          window.setTimeout(function () { toggle.classList.remove('is-turning'); }, 450);
           document.documentElement.setAttribute('data-theme', next);
           saveTheme(next);
           label();
@@ -119,7 +121,83 @@
     }
   }
 
+  function prefersMotion() {
+    return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function setupReveal() {
+    try {
+      var groups = [
+        '.section-head',
+        '.group-title',
+        '.group-note',
+        '.products > .product',
+        '.client-work > article',
+        '.packages > li',
+        '.timeline > li',
+        '.about-photo',
+        '.skills > div',
+        '.contact-lines > li',
+        '.contact-form'
+      ];
+      var targets = [];
+      groups.forEach(function (selector) {
+        document.querySelectorAll(selector).forEach(function (element, index) {
+          element.classList.add('reveal');
+          element.style.setProperty('--stagger', String(index % 6));
+          targets.push(element);
+        });
+      });
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach(function (element) { element.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      targets.forEach(function (element) { observer.observe(element); });
+    } catch (error) {
+      document.documentElement.classList.remove('js');
+      console.error('Reveal setup failed', error);
+    }
+  }
+
+  function setupCounters() {
+    try {
+      if (!prefersMotion()) return;
+      document.querySelectorAll('[data-count]').forEach(function (element) {
+        var target = Number(element.getAttribute('data-count'));
+        var suffix = element.getAttribute('data-suffix') || '';
+        var duration = 1100;
+        var start = null;
+        element.textContent = '0' + suffix;
+        var step = function (timestamp) {
+          try {
+            if (start === null) start = timestamp;
+            var progress = Math.min((timestamp - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            element.textContent = Math.round(target * eased) + suffix;
+            if (progress < 1) window.requestAnimationFrame(step);
+          } catch (error) {
+            element.textContent = target + suffix;
+          }
+        };
+        window.setTimeout(function () { window.requestAnimationFrame(step); }, 600);
+      });
+    } catch (error) {
+      console.error('Counter setup failed', error);
+    }
+  }
+
   var stored = readTheme();
+  if (prefersMotion()) {
+    document.documentElement.classList.add('js');
+  }
   if (stored === 'light' || stored === 'dark') {
     document.documentElement.setAttribute('data-theme', stored);
   }
@@ -128,5 +206,7 @@
     setupThemeToggle();
     setupContactForm();
     setupYear();
+    setupReveal();
+    setupCounters();
   });
 })();
