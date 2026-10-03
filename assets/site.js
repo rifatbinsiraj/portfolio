@@ -188,6 +188,7 @@
           }
         };
         window.setTimeout(function () { window.requestAnimationFrame(step); }, 600);
+        window.setTimeout(function () { element.textContent = target + suffix; }, 600 + duration + 400);
       });
     } catch (error) {
       console.error('Counter setup failed', error);
