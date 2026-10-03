@@ -11,7 +11,7 @@
   <style>
     @page {
       size: Letter;
-      margin: 0.42in 0.5in 0.42in;
+      margin: 0.36in 0.5in 0.34in;
     }
 
     :root {
@@ -338,26 +338,22 @@
     <div class="job-head"><span><strong>DrutoAI Chat Platform</strong> — <span class="org">drutoai.com</span></span><span
         class="when">2026 – Present</span></div>
     <ul>
-      <li>Full-stack pay-per-chat AI platform for Bangladesh with pluggable LLM providers (Claude, OpenAI, OpenRouter).
-      </li>
-      <li>NestJS + MongoDB backend with JWT auth, Swagger, usage metering, and credit billing; React + Vite +
-        TypeScript + Tailwind front-end with real-time streaming and Bangla support.</li>
-      <li>Integrated bKash payment gateway for chat-package purchases and shipped native iOS &amp; Android apps via
+      <li>Pay-per-chat AI platform for Bangladesh with pluggable LLM providers (Claude, OpenAI, OpenRouter), real-time
+        streaming, Bangla support, usage metering and credit billing; bKash payments; native iOS &amp; Android apps via
         Capacitor.</li>
+      <li>NestJS + MongoDB backend (JWT, Swagger) with a React + Vite + TypeScript + Tailwind front-end.</li>
     </ul>
   </div>
   <div class="job">
     <div class="job-head"><span><strong>LLM Autopilot</strong> — AI Agent Office &amp; LLMOps Gateway — <span
           class="org">agent.drutoai.com</span></span><span class="when">2026 – Present</span></div>
     <ul>
-      <li>Office of AI agents: a manager agent breaks a goal into tasks, assigns them, reviews results and sends work
-        back; live office floor over Socket.IO.</li>
-      <li>Gateway routes each request to the cheapest capable model with a semantic cache, fallback chains, a trace
-        for every step and a cost for every request.</li>
-      <li>Ticket sync from Jira, GitHub, GitLab, Linear, Asana &amp; ClickUp; 50+ integrations with one-click OAuth connect;
-        Google/GitHub sign-in; MCP server.</li>
-      <li>NestJS 11 / Fastify, MongoDB, Redis, React + TypeScript + Tailwind, AWS S3; Docker images built in GitHub
-        Actions and deployed to EC2 with health-checked rollouts.</li>
+      <li>Office of AI agents: a manager agent splits a goal into tasks, assigns them and reviews the results, shown live
+        over Socket.IO; tickets sync from Jira, GitHub, GitLab, Linear, Asana &amp; ClickUp; 50+ integrations.</li>
+      <li>Gateway routes each request to the cheapest capable model, with a semantic cache, fallback chains, a trace for
+        every step and a cost for every request.</li>
+      <li>NestJS 11 / Fastify, MongoDB, Redis, React + TypeScript + Tailwind, AWS S3, MCP; Docker images built in
+        GitHub Actions and rolled out to EC2 behind health checks.</li>
     </ul>
   </div>
   <div class="job">
@@ -382,69 +378,41 @@
     <li><strong>ShopVerse</strong> (shop.drutoai.com) — full-stack e-commerce store with admin panel. NestJS, MongoDB,
       React, Redux Toolkit, AWS S3, JWT.</li>
   </ul>
-  <p class="muted" style="margin-top:3px">Infrastructure: the LLM Autopilot, ShopDesk and DrutoAI APIs share one AWS
-    EC2 host behind Nginx and one MongoDB with a database and user per app, with weekly S3 backups and failure
-    alerts.</p>
 
-  <h2>PROJECTS — SENSE &amp; RESPOND SOFTWARE LLC</h2>
-  <div class="project"><p class="title">QA Studio — AI-Powered API Testing &amp; QA Automation Platform</p>
-    <p class="desc">NestJS + Fastify microservices (MongoDB, BullMQ, JWT) and a React + Material UI + ReactFlow + Monaco
-      front-end; AI test generation via Claude, OpenAI &amp; Gemini (Vercel AI SDK + MCP), mock servers, and
-      API-collection management on AWS.</p>
-  </div>
-  <div class="project"><p class="title">ATA — API Governance &amp; Documentation Platform</p>
-    <p class="desc">Node.js / Express + NestJS services (MongoDB, Redis, MCP) with a Spectral-based CLI for OpenAPI
-      linting and governance, plus React micro-frontends for the doc portal, governance, and pricing.</p>
-  </div>
-  <div class="project"><p class="title">Sniffer — Defect Tracking &amp; QA Collaboration Tool</p>
-    <p class="desc">NestJS microservices (Anthropic AI, AWS SQS / KMS / SES) and React front-ends with CodeMirror
-      editors and drag-and-drop, Redis caching, fully containerized with Docker Compose.</p>
-  </div>
-  <div class="project"><p class="title">D2C Marketing &amp; Campaign Platform · Associate 360 — HR, Payroll &amp;
-      Finance Suite</p>
-    <p class="desc">Serverless AWS Lambda microservices (DynamoDB, DynamoDB Streams, KMS, Cognito, SES, SNS, MJML,
-      Memcached) for campaign building, persona management and approval workflows, and for company, timesheet,
-      salary, payment and finance management.</p>
-  </div>
-
-  <h2>PROJECTS — GHUDDY LIMITED &amp; FREELANCE</h2>
-  <div class="project"><p class="title">Travel &amp; Hotel Booking Platform <span class="link">· ghuddy.com</span></p>
-    <p class="desc">Java / Spring Boot backend (Spring Data JPA, Spring Security) on PostgreSQL with Flyway,
-      Elasticsearch search, Kafka, Firebase, AWS S3, SurjoPay payments, and Swagger-documented REST APIs.</p>
-  </div>
-  <div class="project"><p class="title">H. Properties <span class="link">· h-properties-nine.vercel.app</span></p>
-    <p class="desc">Bilingual Bangla / English website for a Rajshahi construction company, with an admin panel for
-      project updates and finance pages.</p>
-  </div>
+  <h2>CLIENT &amp; EMPLOYER PROJECTS</h2>
+  <ul class="compact">
+    <li><strong>QA Studio</strong> — AI API testing &amp; QA automation: AI-generated tests (Claude, OpenAI, Gemini
+      via Vercel AI SDK + MCP), mock servers. NestJS/Fastify microservices, BullMQ, React, ReactFlow, Monaco.</li>
+    <li><strong>ATA</strong> — API governance &amp; docs platform with a Spectral-based OpenAPI linting CLI and React
+      micro-frontends. Node.js, NestJS, MongoDB, Redis, MCP.</li>
+    <li><strong>Sniffer</strong> — defect tracking &amp; QA collaboration. NestJS microservices, Anthropic AI, AWS
+      SQS / KMS / SES, React, CodeMirror, Redis, Docker Compose.</li>
+    <li><strong>D2C Campaigns &amp; Associate 360</strong> — campaign platform and HR, payroll &amp; finance suite on
+      serverless AWS Lambda, DynamoDB Streams, Cognito, KMS, SES, SNS.</li>
+    <li><strong>Ghuddy travel &amp; hotel booking</strong> (ghuddy.com) — Spring Boot, JPA, Spring Security,
+      PostgreSQL, Flyway, Elasticsearch, Kafka, SurjoPay, AWS S3.</li>
+    <li><strong>H. Properties</strong> (freelance) — bilingual Bangla / English site for a Rajshahi builder, with an
+      admin panel for project updates and finance.</li>
+  </ul>
 
   <h2>OPEN SOURCE &amp; OTHER BUILDS</h2>
-  <p><strong>Published npm packages:</strong> api-collection-converter (Postman, Swagger, OpenAPI,
-    Insomnia, HAR, cURL, RAML, GraphQL, WSDL &amp; AWS API Gateway), files-to-markdown, crashrelay,
-    crashrelay-browser, and a CI security suite — vuln-guardian, secrets-guardian, postinstall-guardian,
-    license-guardian, actions-guardian.</p>
-  <p style="margin-top:3px"><strong>Public repos:</strong> Chatbot Platform (multi-tenant agents with streamed
-    Claude / OpenRouter answers), ShopFlow (orders and payments via Stripe &amp; bKash; NestJS, TypeORM, PostgreSQL,
-    Redis), Secure Notes API (JWT, RBAC, brute-force protection).</p>
-  <p style="margin-top:3px"><strong>In development:</strong> Job App Tracker (Gmail OAuth + Claude classification),
-    Restaurant SaaS (Stripe Connect storefronts), Deploy Hub (SSH deploy dashboard with live logs), and five Flutter
-    apps for Bangladesh.</p>
+  <p><strong>npm:</strong> api-collection-converter (Postman, OpenAPI, Insomnia, HAR, cURL, RAML, GraphQL, WSDL),
+    files-to-markdown, crashrelay, crashrelay-browser, and the vuln-, secrets-, postinstall-, license- and
+    actions-guardian CI security tools.
+    <strong>Public repos:</strong> Chatbot Platform, ShopFlow (Stripe &amp; bKash payments), Secure Notes API.
+    <strong>In development:</strong> Job App Tracker, Restaurant SaaS, Deploy Hub, five Flutter apps for Bangladesh.
+  </p>
 
   <h2>KEY ACHIEVEMENTS</h2>
   <dl class="achievements">
     <dt>50% Faster APIs</dt>
-    <dd>Halved average server response time across services via query optimization, caching, and endpoint
-      refactoring.</dd>
+    <dd>Halved average response time via query optimization, caching and endpoint refactoring.</dd>
     <dt>95% Test Coverage</dt>
-    <dd>Built unit &amp; integration suites (Jest, JUnit, Mockito) in CI/CD, eliminating production regressions for
-      18+ consecutive months.</dd>
-    <dt>5 Products / 12 Months</dt>
-    <dd>Led a cross-functional team to design, build, and ship five full-stack products on time and to spec.</dd>
+    <dd>Jest, JUnit and Mockito suites in CI/CD; no production regressions for 18+ consecutive months.</dd>
     <dt>60% Fewer Bugs</dt>
-    <dd>Introduced automated testing gates and code-review standards that sharply reduced defects reaching production.
-    </dd>
-    <dt>Founder of DrutoAI</dt>
-    <dd>Built and launched seven live AI products, including a monetized AI chat platform serving users across
-      Bangladesh; published nine open-source npm packages.</dd>
+    <dd>Automated testing gates and code-review standards cut defects reaching production.</dd>
+    <dt>5 Products / 12 Months</dt>
+    <dd>Led a cross-functional team to ship five full-stack products on time and to spec.</dd>
   </dl>
 
   <h2>EDUCATION &amp; PUBLICATION</h2>
@@ -456,8 +424,8 @@
   <div class="job">
     <div class="job-head"><span><strong>Clustering-Based Undersampling Using K-Means for Class-Imbalanced
           Data</strong><span class="badge">Accepted</span></span><span class="when">Nov 2026</span></div>
-    <p>R. B. Siraj, E. K. Hashi — 11th IEEE Asia-Pacific Conference on Computer Science and Data Engineering (IEEE
-      CSDE 2026), Cox's Bazar, Bangladesh. Based on my undergraduate thesis.</p>
+    <p>R. B. Siraj, E. K. Hashi — IEEE CSDE 2026 (11th Asia-Pacific Conference on Computer Science and Data
+      Engineering), Cox's Bazar. From my undergraduate thesis.</p>
   </div>
 </body>
 
