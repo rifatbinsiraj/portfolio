@@ -439,6 +439,21 @@
     }
   }
 
+  function setupOffscreenPause() {
+    try {
+      if (!('IntersectionObserver' in window)) return;
+      var watched = document.querySelectorAll('.marquee, .hero');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle('is-offscreen', !entry.isIntersecting);
+        });
+      });
+      watched.forEach(function (element) { observer.observe(element); });
+    } catch (error) {
+      console.error('Offscreen pause setup failed', error);
+    }
+  }
+
   function setupPointerEffects() {
     try {
       if (!prefersMotion() || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -493,6 +508,7 @@
     setupCounters();
     setupTyped();
     setupScrollEffects();
+    setupOffscreenPause();
     setupPointerEffects();
   });
 })();
