@@ -1531,3 +1531,20 @@ a {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+.packages .name {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.packages .status {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  vertical-align: 1px;
+}
