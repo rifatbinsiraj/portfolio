@@ -142,23 +142,17 @@
     }
 
     ul {
-      margin: 3px 0 0;
-      padding-left: 15px;
-      list-style: none;
+      margin: 2px 0 0;
+      padding-left: 14px;
+      list-style: disc outside;
     }
 
     ul li {
-      position: relative;
       margin-bottom: 1px;
     }
 
-    ul li::before {
-      content: "▸";
-      position: absolute;
-      left: -13px;
+    ul li::marker {
       color: var(--navy);
-      font-size: 8pt;
-      top: 1px;
     }
 
     .project {
@@ -181,20 +175,8 @@
       color: #3b4654;
     }
 
-    .compact {
-      columns: 2;
-      column-gap: 22px;
-      margin: 2px 0 0;
-      padding: 0;
-    }
-
     .compact li {
-      break-inside: avoid;
-      margin-bottom: 3px;
-    }
-
-    .compact li::before {
-      content: none;
+      margin-bottom: 1px;
     }
 
     .compact li strong {
@@ -369,30 +351,30 @@
     </ul>
   </div>
   <ul class="compact">
-    <li><strong>AI Call Center</strong> (callcenter.drutoai.com) — voice AI agents that answer, qualify and book calls.
-      NestJS, Fastify, MongoDB, React, Redux Toolkit, Vapi, ShurjoPay.</li>
-    <li><strong>EduAI</strong> (learn.drutoai.com) — AI learning platform with a Claude tutor and token-based billing.
-      React, TypeScript, NestJS, Fastify, MongoDB.</li>
-    <li><strong>DrutoPay</strong> (pay.drutoai.com) — free payment verification for bKash, Nagad &amp; Rocket from
-      payment SMS, with webhooks and bKash/Nagad merchant APIs. Android, NestJS.</li>
-    <li><strong>ShopVerse</strong> (shop.drutoai.com) — full-stack e-commerce store with admin panel. NestJS, MongoDB,
-      React, Redux Toolkit, AWS S3, JWT.</li>
+    <li><strong>AI Call Center</strong> (callcenter.drutoai.com) — voice AI agents that answer, qualify and book calls;
+      NestJS, React, Vapi.</li>
+    <li><strong>EduAI</strong> (learn.drutoai.com) — AI learning platform with a Claude tutor and token-based billing;
+      NestJS, React.</li>
+    <li><strong>DrutoPay</strong> (pay.drutoai.com) — bKash, Nagad &amp; Rocket payment verification from SMS, with
+      webhooks; NestJS, Android.</li>
+    <li><strong>ShopVerse</strong> (shop.drutoai.com) — full-stack e-commerce store with admin panel; NestJS, React,
+      AWS S3.</li>
   </ul>
 
   <h2>CLIENT &amp; EMPLOYER PROJECTS</h2>
   <ul class="compact">
-    <li><strong>QA Studio</strong> — AI API testing &amp; QA automation: AI-generated tests (Claude, OpenAI, Gemini
-      via Vercel AI SDK + MCP), mock servers. NestJS/Fastify microservices, BullMQ, React, ReactFlow, Monaco.</li>
-    <li><strong>ATA</strong> — API governance &amp; docs platform with a Spectral-based OpenAPI linting CLI and React
-      micro-frontends. Node.js, NestJS, MongoDB, Redis, MCP.</li>
-    <li><strong>Sniffer</strong> — defect tracking &amp; QA collaboration. NestJS microservices, Anthropic AI, AWS
-      SQS / KMS / SES, React, CodeMirror, Redis, Docker Compose.</li>
+    <li><strong>QA Studio</strong> — AI API testing &amp; QA automation (Claude, OpenAI, Gemini via Vercel AI SDK +
+      MCP); NestJS, BullMQ, React.</li>
+    <li><strong>ATA</strong> — API governance &amp; docs platform with a Spectral OpenAPI linting CLI; NestJS, Redis,
+      React micro-frontends.</li>
+    <li><strong>Sniffer</strong> — defect tracking &amp; QA collaboration; NestJS microservices, Anthropic AI, AWS
+      SQS / KMS / SES, Docker.</li>
     <li><strong>D2C Campaigns &amp; Associate 360</strong> — campaign platform and HR, payroll &amp; finance suite on
-      serverless AWS Lambda, DynamoDB Streams, Cognito, KMS, SES, SNS.</li>
-    <li><strong>Ghuddy travel &amp; hotel booking</strong> (ghuddy.com) — Spring Boot, JPA, Spring Security,
-      PostgreSQL, Flyway, Elasticsearch, Kafka, SurjoPay, AWS S3.</li>
-    <li><strong>H. Properties</strong> (freelance) — bilingual Bangla / English site for a Rajshahi builder, with an
-      admin panel for project updates and finance.</li>
+      serverless AWS Lambda.</li>
+    <li><strong>Ghuddy travel &amp; hotel booking</strong> (ghuddy.com) — Spring Boot, PostgreSQL, Elasticsearch,
+      Kafka, SurjoPay.</li>
+    <li><strong>H. Properties</strong> (freelance) — bilingual Bangla / English website for a Rajshahi builder, with
+      an admin panel.</li>
   </ul>
 
   <h2>OPEN SOURCE &amp; OTHER BUILDS</h2>
