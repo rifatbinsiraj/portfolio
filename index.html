@@ -306,15 +306,17 @@
             <a class="product-media" href="https://cod-reconcile-web.vercel.app/?lang=en">
               <img src="images/proj_cod-reconcile-landing-1200.webp"
                 srcset="images/proj_cod-reconcile-landing-640.webp 640w, images/proj_cod-reconcile-landing-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 560px" width="1440" height="810"
-                alt="COD Reconcile home page: a courier invoice with short-paid and wrongly charged parcels flagged" loading="lazy">
+                alt="COD Reconcile home page: a courier invoice with a short-paid parcel and a return charged on a delivered parcel flagged" loading="lazy">
             </a>
             <h4><a href="https://cod-reconcile-web.vercel.app/?lang=en">COD Reconcile</a></h4>
-            <p class="domain">cod-reconcile-web.vercel.app · in development</p>
+            <p class="domain">cod-reconcile-web.vercel.app · preview</p>
             <p>Cash-on-delivery reconciliation for online shops in Bangladesh. Imports orders and courier payout
-              statements (Steadfast, Pathao, RedX or any CSV), checks every parcel against a versioned rate card and flags
-              short payments, wrong fees, returns charged on delivered parcels and parcels never paid out. Built
-              milestone by milestone; foundation and landing page are done. NestJS 11, Fastify, MongoDB, React, Vite,
-              Tailwind.</p>
+              statements (Steadfast, Pathao, RedX or any CSV), matches every parcel to its order, prices it against a
+              dated rate card and flags short payments, wrong fees, returns charged on delivered parcels, parcels never
+              paid and payouts that never reached the bank. A dispute queue, claim files for couriers and an
+              outstanding-COD dashboard follow; the engine is scored on synthetic replays (100% matching precision).
+              193 tests. NestJS 11, Fastify, MongoDB, React, Vite, RTK Query, Tailwind. Front end is live; sign-up
+              opens when the API launches.</p>
           </article>
 
           <article class="product">
