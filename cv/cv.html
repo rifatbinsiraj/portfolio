@@ -237,7 +237,7 @@
   <p>Full Stack Software Engineer with 5+ years of experience building and scaling production-grade web apps,
     cloud-native serverless systems, and AI-powered platforms. Strong across the stack — React.js front-ends, Node.js
     / NestJS / Express.js and Java / Spring Boot back-ends, GraphQL, PostgreSQL / MongoDB, and AWS. Founder and lead
-    engineer of DrutoAI, which runs seven live AI products including a pay-as-you-go AI chat platform and an LLM
+    engineer of DrutoAI, which runs seven live products, including a pay-as-you-go AI chat platform and an LLM
     agent office. Proven impact: 50% faster APIs, 60% fewer production bugs, and 95% test coverage.</p>
 
   <h2>TECHNICAL SKILLS</h2>
@@ -318,7 +318,7 @@
       &amp; Lead Engineer · 2026 – Present</span></h2>
   <div class="job">
     <div class="job-head"><span><strong>DrutoAI Chat Platform</strong> — <span class="org">drutoai.com</span></span><span
-        class="when">2026 – Present</span></div>
+        class="when">2026 – Present · live</span></div>
     <ul>
       <li>Pay-per-chat AI platform for Bangladesh with pluggable LLM providers (Claude, OpenAI, OpenRouter), real-time
         streaming, Bangla support, usage metering and credit billing; bKash payments; native iOS &amp; Android apps via
@@ -328,7 +328,7 @@
   </div>
   <div class="job">
     <div class="job-head"><span><strong>LLM Autopilot</strong> — AI Agent Office &amp; LLMOps Gateway — <span
-          class="org">agent.drutoai.com</span></span><span class="when">2026 – Present</span></div>
+          class="org">agent.drutoai.com</span></span><span class="when">2026 – Present · live</span></div>
     <ul>
       <li>Office of AI agents: a manager agent splits a goal into tasks, assigns them and reviews the results, shown live
         over Socket.IO; tickets sync from Jira, GitHub, GitLab, Linear, Asana &amp; ClickUp; 50+ integrations.</li>
@@ -340,7 +340,7 @@
   </div>
   <div class="job">
     <div class="job-head"><span><strong>ShopDesk</strong> — Multi-Tenant AI Sales Assistant for Online Stores — <span
-          class="org">bot.drutoai.com</span></span><span class="when">Jul 2026 – Present</span></div>
+          class="org">bot.drutoai.com</span></span><span class="when">Jul 2026 – Present · live</span></div>
     <ul>
       <li>Answers customers on Messenger, WhatsApp, Instagram &amp; web chat in Bangla or English and takes orders in
         conversation.</li>
@@ -351,21 +351,70 @@
     </ul>
   </div>
   <ul class="compact">
-    <li><strong>AI Call Center</strong> (callcenter.drutoai.com) — voice AI agents that answer, qualify and book calls;
-      NestJS, React, Vapi.</li>
-    <li><strong>EduAI</strong> (learn.drutoai.com) — AI learning platform with a Claude tutor and token-based billing;
-      NestJS, React.</li>
-    <li><strong>DrutoPay</strong> (pay.drutoai.com) — bKash, Nagad &amp; Rocket payment verification from SMS, with
-      webhooks; NestJS, Android.</li>
-    <li><strong>Baki-Khata</strong> (baki-khata-web.vercel.app, preview) — shop credit ledger whose dues settle
-      automatically from bKash, Nagad &amp; Rocket SMS, with reminders and ageing reports; NestJS, React.</li>
-    <li><strong>COD Reconcile</strong> (cod-reconcile-web.vercel.app, preview) — matches courier COD payouts to orders
-      and flags short payments and wrong fees against dated rate cards; NestJS, React.</li>
-    <li><strong>Payment Shield</strong> (payment-shield-web.vercel.app, in development) — checks bKash, Nagad &amp;
-      Rocket payment claims against the shop's own SMS inbox, with OCR of payment screenshots (English &amp; Bangla);
-      NestJS, React, tesseract.js.</li>
-    <li><strong>ShopVerse</strong> (shop.drutoai.com) — full-stack e-commerce store with admin panel; NestJS, React,
-      AWS S3.</li>
+    <li><strong>AI Call Center</strong> (callcenter.drutoai.com, live) — voice AI agents that answer, qualify and book
+      calls, with KYC, usage metering and ShurjoPay billing; NestJS, React, Vapi.</li>
+    <li><strong>EduAI</strong> (learn.drutoai.com, live) — AI learning platform with a Claude tutor, cached search and
+      token-based billing in Bangla and English; NestJS, React.</li>
+    <li><strong>DrutoPay</strong> (pay.drutoai.com, live) — bKash, Nagad &amp; Rocket payment verification from SMS
+      captured by an Android app, with a commission wallet and merchant webhooks; NestJS, Android.</li>
+    <li><strong>ShopVerse</strong> (shop.drutoai.com, live) — full-stack e-commerce store with admin panel; NestJS,
+      React, AWS S3.</li>
+  </ul>
+
+  <h2>BANGLADESH FINTECH SUITE <span class="muted" style="font-weight:400;font-size:9pt">· built issue by issue with
+      pull requests, CI and design records · 2026 – Present</span></h2>
+  <div class="job">
+    <div class="job-head"><span><strong>Payment Shield</strong> — Payment-Claim Verification — <span
+          class="org">payment-shield-web.vercel.app</span></span><span class="when">in development</span></div>
+    <ul>
+      <li>Checks every bKash, Nagad or Rocket payment a customer claims (store API, staff entry or a one-time customer
+        link) against the money-received SMS on the shop's own phone: verified, wrong amount, TrxID reused or not
+        received; waiting claims re-check as SMS arrive.</li>
+      <li>Reads payment screenshots with tesseract OCR (English &amp; Bangla) in a background queue and flags edited
+        amounts, reused images and editor metadata; a rule-based risk score decides ship, hold or reject.</li>
+      <li>NestJS 11 / Fastify, MongoDB, React + Vite + RTK Query + Tailwind; 150+ tests.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-head"><span><strong>COD Reconcile</strong> — Cash-on-Delivery Reconciliation — <span
+          class="org">cod-reconcile-web.vercel.app</span></span><span class="when">preview</span></div>
+    <ul>
+      <li>Imports orders and courier payout statements (Steadfast, Pathao, RedX or any CSV), matches every parcel to
+        its order, prices it against a dated rate card and flags short payments, wrong fees, returns charged on
+        delivered parcels and payouts that never reached the bank.</li>
+      <li>Dispute queue, claim files for couriers and an outstanding-COD dashboard; engine scored on synthetic replays;
+        193 tests.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-head"><span><strong>Baki-Khata</strong> — Shop Credit Ledger — <span
+          class="org">baki-khata-web.vercel.app</span></span><span class="when">preview</span></div>
+    <ul>
+      <li>Credit ledger for small shops whose dues settle automatically, oldest first, from bKash, Nagad &amp; Rocket
+        SMS; review queue for unknown numbers, SMS reminders, shareable statements and ageing reports.</li>
+      <li>Append-only ledger, duplicate-safe on transaction IDs; 77 tests.</li>
+    </ul>
+  </div>
+  <ul class="compact">
+    <li><strong>bd-mfs-core</strong> — shared TypeScript library behind the suite: SMS parsers for 11 Bangladeshi
+      mobile-money providers, phone and Taka handling, payment matching, signed webhooks, commission math and an Android
+      SMS forwarder; 119 tests.</li>
+  </ul>
+
+  <h2>OTHER PRODUCTS IN DEVELOPMENT</h2>
+  <ul class="compact">
+    <li><strong>Restaurant SaaS</strong> — multi-tenant ordering for restaurants (delivery, pickup and QR dine-in) on
+      their own slug or subdomain, with Stripe Connect payouts; NestJS / Fastify, Socket.IO, React, RTK Query.</li>
+    <li><strong>Job App Tracker</strong> — syncs Gmail over OAuth, classifies job-application emails with Claude and
+      keeps a Kanban board of every application; NestJS, React.</li>
+    <li><strong>Deploy Hub</strong> — self-hosted, Jenkins-style deployment dashboard that deploys over SSH to pm2 or
+      Docker targets on demand; NestJS / Fastify, React, WebSockets.</li>
+    <li><strong>AI Trading Bot</strong> — crypto trading bot on Binance that combines technical indicators with Claude
+      analysis before each trade; NestJS, Docker.</li>
+    <li><strong>Healthcare App</strong> — Flutter mobile app with a Node.js proxy to Gemini AI, auth and audit
+      logging.</li>
+    <li><strong>Five Flutter apps for Bangladesh</strong> — tutor finder, freelancer match, medicine reminder,
+      neighbourhood shop and transport tracker, built from one shared starter (auth, theming, Bangla / English).</li>
   </ul>
 
   <h2>CLIENT &amp; EMPLOYER PROJECTS</h2>
@@ -389,7 +438,6 @@
     files-to-markdown, crashrelay, crashrelay-browser, and the vuln-, secrets-, postinstall-, license- and
     actions-guardian CI security tools.
     <strong>Public repos:</strong> Chatbot Platform, ShopFlow (Stripe &amp; bKash payments), Secure Notes API.
-    <strong>In development:</strong> Job App Tracker, Restaurant SaaS, Deploy Hub, five Flutter apps for Bangladesh.
   </p>
 
   <h2>KEY ACHIEVEMENTS</h2>
