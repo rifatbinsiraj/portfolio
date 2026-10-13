@@ -327,14 +327,15 @@
                 alt="Payment Shield home page: a shop phone receiving bKash SMS beside a claim checked against them and marked verified" loading="lazy">
             </a>
             <h4><a href="https://payment-shield-web.vercel.app/?lang=en">Payment Shield</a></h4>
-            <p class="domain">payment-shield-web.vercel.app · in development</p>
+            <p class="domain">payment-shield-web.vercel.app · preview</p>
             <p>Stops online shops in Bangladesh shipping orders that were never paid. Every bKash, Nagad or Rocket payment
               a customer claims (by store API, staff entry or a one-time customer link) is checked against the
               money-received SMS on the shop's own phone: verified, wrong amount, TrxID already used or not received.
-              Payment screenshots are read with OCR (English and Bangla) and flagged when they disagree with the SMS.
-              Built milestone by milestone; claims, inbox matching and screenshots are done, risk scoring is next.
-              NestJS 11, Fastify, MongoDB, React, Vite, RTK Query, Tailwind, tesseract.js. Front end is live; sign-up
-              opens when the API launches.</p>
+              Payment screenshots are read with OCR (English and Bangla); a rule-based risk score with its reasons
+              decides ship, hold or reject, and an opt-in network of hashed TrxIDs catches one payment offered to
+              several shops. Hold queue, signed webhooks, outcome labels with rule accuracy, and a synthetic fraud
+              benchmark. বাংলা / English. NestJS 11, Fastify, MongoDB, React, Vite, RTK Query, Tailwind,
+              tesseract.js. Front end is live; sign-up opens when the API launches.</p>
           </article>
 
           <article class="product">
