@@ -499,6 +499,99 @@
     root.classList.add('js');
   }
 
+  var SLIDE_INTERVAL_MS = 5000;
+  var ARROW_ICONS = {
+    prev: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>',
+    next: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>',
+  };
+
+  /** Adds arrows, dots and a gentle auto-advance to screenshot strips that hold more than one image. */
+  function setupSliders() {
+    try {
+      document.querySelectorAll('[data-slider]').forEach(function (slider) {
+        var track = slider.querySelector('.slider-track');
+        var slides = track ? track.querySelectorAll('img') : [];
+        if (slides.length < 2) return;
+        var dots = document.createElement('div');
+        dots.className = 'slider-dots';
+        var current = 0;
+        var hovering = false;
+        var visible = false;
+
+        function goTo(index) {
+          current = (index + slides.length) % slides.length;
+          track.scrollTo({ left: current * track.clientWidth, behavior: prefersMotion() ? 'smooth' : 'auto' });
+        }
+
+        function markCurrent() {
+          dots.querySelectorAll('button').forEach(function (dot, index) {
+            dot.setAttribute('aria-current', index === current ? 'true' : 'false');
+          });
+        }
+
+        slides.forEach(function (slide, index) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Show screenshot ' + (index + 1) + ' of ' + slides.length);
+          dot.addEventListener('click', function () {
+            goTo(index);
+          });
+          dots.appendChild(dot);
+        });
+
+        ['prev', 'next'].forEach(function (direction) {
+          var arrow = document.createElement('button');
+          arrow.type = 'button';
+          arrow.className = 'slider-arrow ' + direction;
+          arrow.setAttribute('aria-label', direction === 'prev' ? 'Previous screenshot' : 'Next screenshot');
+          arrow.innerHTML = ARROW_ICONS[direction];
+          arrow.addEventListener('click', function () {
+            goTo(current + (direction === 'prev' ? -1 : 1));
+          });
+          slider.appendChild(arrow);
+        });
+        slider.appendChild(dots);
+        markCurrent();
+
+        track.addEventListener('scroll', function () {
+          var index = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+          if (index !== current) {
+            current = index;
+          }
+          markCurrent();
+        }, { passive: true });
+
+        track.addEventListener('keydown', function (event) {
+          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            event.preventDefault();
+            goTo(current + (event.key === 'ArrowRight' ? 1 : -1));
+          }
+        });
+
+        slider.addEventListener('pointerenter', function () {
+          hovering = true;
+        });
+        slider.addEventListener('pointerleave', function () {
+          hovering = false;
+        });
+
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+          }, { threshold: 0.6 }).observe(slider);
+        }
+
+        if (prefersMotion()) {
+          setInterval(function () {
+            if (visible && !hovering && !document.hidden) goTo(current + 1);
+          }, SLIDE_INTERVAL_MS);
+        }
+      });
+    } catch (error) {
+      console.error('Slider setup failed', error);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     setupThemeControls();
     setupMobileMenu();
@@ -510,5 +603,6 @@
     setupScrollEffects();
     setupOffscreenPause();
     setupPointerEffects();
+    setupSliders();
   });
 })();
