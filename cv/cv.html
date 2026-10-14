@@ -365,7 +365,7 @@
       pull requests, CI and design records · 2026 – Present</span></h2>
   <div class="job">
     <div class="job-head"><span><strong>Kisti</strong> — Recurring MFS Billing — <span
-          class="org">kisti-web.vercel.app</span></span><span class="when">in development</span></div>
+          class="org">kisti-web.vercel.app</span></span><span class="when">preview</span></div>
     <ul>
       <li>Bills students, members and customers of schools, coaching centres, ISPs and gyms every month, quarter or
         year on Dhaka dates, with prorated months, discounts and one-time fees; a unique index per subscription and
@@ -374,7 +374,11 @@
         by payer number and amount; anything unclear waits in a review queue where staff assign, split or undo.</li>
       <li>Append-only ledger with oldest-first allocation, waivers, credits and reversals; numbered cash receipts,
         printable statements and a private payer link showing what is due and how to pay.</li>
-      <li>NestJS 11 / Fastify, MongoDB, React + Vite + RTK Query + Tailwind; বাংলা / English; 200+ tests; three
+      <li>SMS reminders within a monthly budget and quiet hours, late fees and dunning stages up to suspension, and
+        signed webhooks with retries so an ISP or gym system restores service the moment a payment lands.</li>
+      <li>Synthetic matching benchmark through the real parser: 98.5% precision; its first run found a bKash parsing
+        bug, fixed upstream in the shared MFS library.</li>
+      <li>NestJS 11 / Fastify, MongoDB, React + Vite + RTK Query + Tailwind; বাংলা / English; 260+ tests; five
         design records.</li>
     </ul>
   </div>
