@@ -364,6 +364,16 @@
   <h2>BANGLADESH FINTECH SUITE <span class="muted" style="font-weight:400;font-size:9pt">· built issue by issue with
       pull requests, CI and design records · 2026 – Present</span></h2>
   <div class="job">
+    <div class="job-head"><span><strong>Joma-Khoroch</strong> — SME Bookkeeping from SMS — <span
+          class="org">joma-khoroch-web.vercel.app</span></span><span class="when">preview</span></div>
+    <ul>
+      <li>Turns a small business's bKash, Nagad and Rocket SMS into an append-only double-entry ledger: own transfers
+        paired, rules then optional AI to categorise, month close, P&amp;L and cash flow, read-only accountant role.</li>
+      <li>Synthetic benchmark: 1,061 of 1,061 wallet SMS recorded exactly, 14 of 14 transfers paired. NestJS 11 /
+        Fastify, MongoDB, React + RTK Query; বাংলা / English; 290+ tests; five design records.</li>
+    </ul>
+  </div>
+  <div class="job">
     <div class="job-head"><span><strong>Bitoron</strong> — MFS Payout Verification — <span
           class="org">bitoron-web.vercel.app</span></span><span class="when">preview</span></div>
     <ul>
@@ -371,10 +381,8 @@
         SMS, matched to its batch line by number and exact amount, after maker-checker approval with limits.</li>
       <li>Re-runnable stored matching, an audited and reversible exceptions queue, and a balance trail that finds SMS
         that never arrived; signed webhooks, an event feed and a batch API.</li>
-      <li>Synthetic benchmark through the real parser: 100% confirmation precision and recall; its first run exposed
-        a mismatch-attribution rule, since fixed.</li>
-      <li>NestJS 11 / Fastify, MongoDB, React + Vite + RTK Query + Tailwind; বাংলা / English; 260+ tests; five design
-        records.</li>
+      <li>Synthetic benchmark: 100% confirmation precision and recall. NestJS 11 / Fastify, MongoDB, React + RTK
+        Query; বাংলা / English; 260+ tests; five design records.</li>
     </ul>
   </div>
   <div class="job">
@@ -400,25 +408,20 @@
     <div class="job-head"><span><strong>Payment Shield</strong> — Payment-Claim Verification — <span
           class="org">payment-shield-web.vercel.app</span></span><span class="when">preview</span></div>
     <ul>
-      <li>Checks every bKash, Nagad or Rocket payment a customer claims (store API, staff entry or a one-time customer
-        link) against the money-received SMS on the shop's own phone: verified, wrong amount, TrxID reused or not
-        received; waiting claims re-check as SMS arrive.</li>
-      <li>Reads payment screenshots with tesseract OCR (English &amp; Bangla) in a background queue and flags edited
-        amounts, reused images and editor metadata; a rule-based risk score with reasons decides ship, hold or
-        reject.</li>
-      <li>Opt-in fraud network shares only keyed HMAC hashes of TrxIDs and reported senders between shops; hold queue,
-        HMAC-signed webhooks with retries, outcome labels feeding a rule-accuracy report.</li>
-      <li>NestJS 11 / Fastify, MongoDB, React + Vite + RTK Query + Tailwind; বাংলা / English; 210+ tests and a seeded
-        synthetic fraud benchmark; four design records.</li>
+      <li>Checks every bKash, Nagad or Rocket payment a customer claims against the money-received SMS on the shop's
+        own phone: verified, wrong amount, TrxID reused or not received; re-checks as SMS arrive.</li>
+      <li>Reads payment screenshots with OCR (English &amp; Bangla), flags edited amounts and reused images; a
+        rule-based risk score with reasons decides ship, hold or reject.</li>
+      <li>Opt-in fraud network sharing only HMAC hashes between shops; hold queue and signed webhooks. NestJS 11 /
+        Fastify, MongoDB, React + RTK Query; বাংলা / English; 210+ tests; synthetic fraud benchmark.</li>
     </ul>
   </div>
   <div class="job">
     <div class="job-head"><span><strong>COD Reconcile</strong> — Cash-on-Delivery Reconciliation — <span
           class="org">cod-reconcile-web.vercel.app</span></span><span class="when">preview</span></div>
     <ul>
-      <li>Imports orders and courier payout statements (Steadfast, Pathao, RedX or any CSV), matches every parcel to
-        its order, prices it against a dated rate card and flags short payments, wrong fees, returns charged on
-        delivered parcels and payouts that never reached the bank.</li>
+      <li>Matches courier payout statements (Steadfast, Pathao, RedX or any CSV) to every order against a dated rate
+        card; flags short payments, wrong fees, wrongly charged returns and payouts that never reached the bank.</li>
       <li>Dispute queue, claim files for couriers and an outstanding-COD dashboard; engine scored on synthetic replays;
         193 tests.</li>
     </ul>
@@ -444,10 +447,8 @@
       their own slug or subdomain, with Stripe Connect payouts; NestJS / Fastify, Socket.IO, React, RTK Query.</li>
     <li><strong>Job App Tracker</strong> — syncs Gmail over OAuth, classifies job-application emails with Claude and
       keeps a Kanban board of every application; NestJS, React.</li>
-    <li><strong>Deploy Hub</strong> — self-hosted, Jenkins-style deployment dashboard that deploys over SSH to pm2 or
-      Docker targets on demand; NestJS / Fastify, React, WebSockets.</li>
-    <li><strong>AI Trading Bot</strong> — crypto trading bot on Binance that combines technical indicators with Claude
-      analysis before each trade; NestJS, Docker.</li>
+    <li><strong>Deploy Hub</strong> — self-hosted deployment dashboard over SSH to pm2 or Docker; NestJS, React, WebSockets.</li>
+    <li><strong>AI Trading Bot</strong> — Binance bot combining technical indicators with Claude analysis; NestJS, Docker.</li>
     <li><strong>Healthcare App</strong> — Flutter mobile app with a Node.js proxy to Gemini AI, auth and audit
       logging.</li>
     <li><strong>Five Flutter apps for Bangladesh</strong> — tutor finder, freelancer match, medicine reminder,
