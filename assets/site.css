@@ -720,10 +720,32 @@ a {
 }
 
 .client-work article {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 12px;
   overflow: hidden;
+}
+
+/* The title link covers the whole card, so the image and text open the project too. */
+.client-work h4 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.client-work article:hover h4 a,
+.client-work article:focus-within h4 a {
+  color: var(--accent);
+}
+
+.client-work article:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.client-work h4 a:focus-visible {
+  outline: none;
 }
 
 .client-work img {
