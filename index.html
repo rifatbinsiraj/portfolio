@@ -200,6 +200,43 @@
         <div class="products">
           <article class="product product-featured">
             <div class="product-media product-slider" data-slider>
+              <a class="slider-track" href="https://bytevoice-bangla.vercel.app/" aria-label="Open ByteVoice Bangla" target="_blank" rel="noopener noreferrer">
+                <img src="images/proj_bytevoice-1-1200.webp"
+                  srcset="images/proj_bytevoice-1-640.webp 640w, images/proj_bytevoice-1-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 560px" width="1440" height="810"
+                  alt="ByteVoice Bangla landing page: a glowing 3D voice orb next to the Talk to our Bangla caller button" loading="lazy">
+                <img src="images/proj_bytevoice-2-1200.webp"
+                  srcset="images/proj_bytevoice-2-640.webp 640w, images/proj_bytevoice-2-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 560px" width="1440" height="810"
+                  alt="ByteVoice staff portal call detail: Bangla and English summary, speaker-labelled transcript and validated fields for name, phone, reason, date and time" loading="lazy">
+                <img src="images/proj_bytevoice-3-1200.webp"
+                  srcset="images/proj_bytevoice-3-640.webp 640w, images/proj_bytevoice-3-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 560px" width="1440" height="810"
+                  alt="ByteVoice portal overview: calls today, booked share, after-hours calls, average duration, open callbacks and the latest calls with their outcomes" loading="lazy">
+                <img src="images/proj_bytevoice-4-1200.webp"
+                  srcset="images/proj_bytevoice-4-640.webp 640w, images/proj_bytevoice-4-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 560px" width="1440" height="810"
+                  alt="ByteVoice portal data model: entity diagram of calls, transcript turns, extractions, events, appointments and callbacks" loading="lazy">
+              </a>
+            </div>
+            <div>
+              <span class="tag">Newest</span>
+              <h4><a href="https://bytevoice-bangla.vercel.app/" target="_blank" rel="noopener noreferrer">ByteVoice Bangla</a></h4>
+              <p class="domain">bytevoice-bangla.vercel.app · <a href="https://github.com/Rifat024/bytevoice-bangla"
+                  target="_blank" rel="noopener noreferrer">code on GitHub</a></p>
+              <p>An AI receptionist that answers a Bangladeshi dental clinic's phone in natural Dhaka Bangla. You talk
+                to Nila in the browser: she takes your name and number, reads the number back digit by digit, finds a
+                free slot and books it, and the call appears in the staff portal within a minute.</p>
+              <ul class="points">
+                <li>Gemini Live speech-to-speech with the Bangladesh language code over LiveKit WebRTC, with
+                  interruptions, silence handling and ten validated booking tools</li>
+                <li>Bangla and English digits, phone numbers and phrases like "আগামী রবিবার সন্ধ্যা" resolved in code;
+                  a Postgres constraint makes double booking impossible</li>
+                <li>Live transcript, tool timeline and per-turn latency in a Supabase Realtime portal; privacy
+                  guardrails, 97 unit tests and 11 of 11 conversation evals passing</li>
+                <li>Python LiveKit Agents, Gemini, Next.js 16, React Three Fiber, Supabase, Vercel, LiveKit Cloud</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="product product-featured">
+            <div class="product-media product-slider" data-slider>
               <a class="slider-track" href="https://agent.drutoai.com/" aria-label="Open LLM Autopilot" target="_blank" rel="noopener noreferrer">
                 <img src="images/proj_llm-autopilot-1-1200.webp"
                   srcset="images/proj_llm-autopilot-1-640.webp 640w, images/proj_llm-autopilot-1-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 560px" width="1440" height="810"
@@ -213,7 +250,6 @@
               </a>
             </div>
             <div>
-              <span class="tag">Newest</span>
               <h4><a href="https://agent.drutoai.com/" target="_blank" rel="noopener noreferrer">LLM Autopilot</a></h4>
               <p class="domain">agent.drutoai.com</p>
               <p>An office of AI agents you can watch work. You give the office a goal; a manager agent splits it
