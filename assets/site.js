@@ -592,6 +592,69 @@
     }
   }
 
+  function setupVideoModal() {
+    try {
+      var buttons = document.querySelectorAll('[data-video]');
+      if (!buttons.length || typeof HTMLDialogElement === 'undefined') return;
+
+      var dialog = document.createElement('dialog');
+      dialog.className = 'video-modal';
+      dialog.setAttribute('aria-label', 'Product video');
+      dialog.innerHTML =
+        '<div class="video-modal-head">' +
+        '<p class="video-modal-title"></p>' +
+        '<button type="button" class="video-modal-close" aria-label="Close video">&times;</button>' +
+        '</div>' +
+        '<video controls playsinline preload="none"></video>';
+      document.body.appendChild(dialog);
+
+      var video = dialog.querySelector('video');
+      var title = dialog.querySelector('.video-modal-title');
+      var opener = null;
+
+      function closeVideo() {
+        try {
+          video.pause();
+          video.removeAttribute('src');
+          video.load();
+          if (opener) opener.focus();
+        } catch (error) {
+          console.error('Video close failed', error);
+        }
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          try {
+            opener = button;
+            title.textContent = button.getAttribute('data-title') || '';
+            video.poster = button.getAttribute('data-poster') || '';
+            video.src = button.getAttribute('data-video');
+            dialog.showModal();
+            var playing = video.play();
+            if (playing && playing.catch) {
+              playing.catch(function (error) {
+                console.warn('Autoplay was blocked', error);
+              });
+            }
+          } catch (error) {
+            console.error('Video open failed', error);
+          }
+        });
+      });
+
+      dialog.querySelector('.video-modal-close').addEventListener('click', function () {
+        dialog.close();
+      });
+      dialog.addEventListener('click', function (event) {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener('close', closeVideo);
+    } catch (error) {
+      console.error('Video modal setup failed', error);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     setupThemeControls();
     setupMobileMenu();
@@ -604,5 +667,6 @@
     setupOffscreenPause();
     setupPointerEffects();
     setupSliders();
+    setupVideoModal();
   });
 })();
