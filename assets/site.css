@@ -1795,3 +1795,7 @@ a {
   color: var(--live);
   background: var(--live-soft);
 }
+
+[hidden] {
+  display: none !important;
+}
